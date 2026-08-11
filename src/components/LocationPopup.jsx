@@ -1,6 +1,7 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageFrame from "./ImageFrame.jsx";
+import { getLocationPrimaryName, getLocationSecondaryName, isUniversityRecord } from "../utils/placeNames.js";
 
 const typeLabels = {
   university: "Их сургууль",
@@ -9,6 +10,9 @@ const typeLabels = {
 
 export default function LocationPopup({ location }) {
   const summary = location.shortDescriptionMn || location.description;
+  const isUniversity = isUniversityRecord(location);
+  const primaryName = getLocationPrimaryName(location);
+  const secondaryName = getLocationSecondaryName(location);
 
   return (
     <div className="location-popup">
@@ -17,9 +21,9 @@ export default function LocationPopup({ location }) {
         <p className={`type-pill ${location.markerType}`}>
           {typeLabels[location.markerType] || "Байршил"}
         </p>
-        <h3>{location.nameMn || location.nameEn}</h3>
-        <strong>{location.nameZh}</strong>
-        <strong>{location.nameEn}</strong>
+        <h3>{primaryName}</h3>
+        {secondaryName ? <strong>{secondaryName}</strong> : null}
+        {!isUniversity && location.nameEn ? <strong>{location.nameEn}</strong> : null}
         <p className="popup-district">
           <MapPin size={14} aria-hidden="true" />
           {location.district || "Чунчин"}

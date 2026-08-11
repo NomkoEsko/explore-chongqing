@@ -1,6 +1,7 @@
 import { ArrowRight, MapPin, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageFrame from "./ImageFrame.jsx";
+import { getLocationPrimaryName, getLocationSecondaryName, isUniversityRecord } from "../utils/placeNames.js";
 
 const typeLabels = {
   university: "Их сургууль",
@@ -11,6 +12,9 @@ export default function MobileMapSheet({ location, onClose }) {
   if (!location) return null;
 
   const summary = location.shortDescriptionMn || location.description;
+  const isUniversity = isUniversityRecord(location);
+  const primaryName = getLocationPrimaryName(location);
+  const secondaryName = getLocationSecondaryName(location);
 
   return (
     <aside className="mobile-map-sheet" aria-label="Сонгосон газрын мэдээлэл">
@@ -22,9 +26,9 @@ export default function MobileMapSheet({ location, onClose }) {
         <span className={`type-pill ${location.markerType}`}>
           {typeLabels[location.markerType] || "Байршил"}
         </span>
-        <h2>{location.nameMn || location.nameEn}</h2>
-        <p className="name-stack">{location.nameZh}</p>
-        <p className="name-stack">{location.nameEn}</p>
+        <h2>{primaryName}</h2>
+        {secondaryName ? <p className="name-stack">{secondaryName}</p> : null}
+        {!isUniversity && location.nameEn ? <p className="name-stack">{location.nameEn}</p> : null}
         <p className="popup-district">
           <MapPin size={15} aria-hidden="true" />
           {location.district || "Чунчин"}

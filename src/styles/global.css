@@ -1298,6 +1298,48 @@ p {
   padding: 24px;
 }
 
+.university-info-column,
+.campus-info-block,
+.campus-info-groups,
+.campus-info-group {
+  display: grid;
+}
+
+.university-info-column {
+  gap: 12px;
+}
+
+.campus-info-block {
+  gap: 12px;
+}
+
+.campus-info-summary,
+.campus-info-note {
+  margin: 0;
+}
+
+.campus-info-groups {
+  gap: 14px;
+}
+
+.campus-info-group {
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.campus-info-group h3 {
+  margin: 0;
+}
+
+.campus-info-group h3 span {
+  color: var(--muted);
+}
+
+.campus-info-group .clean-list {
+  gap: 6px;
+}
+
 .info-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

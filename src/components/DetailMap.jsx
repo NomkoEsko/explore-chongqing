@@ -4,6 +4,7 @@ import { ArrowRight, Loader2, MapPin } from "lucide-react";
 import { MapContainer, TileLayer, ZoomControl, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import MapMarker from "./MapMarker.jsx";
+import { getLocationPrimaryName, getLocationSecondaryName } from "../utils/placeNames.js";
 
 const remoteZooms = {
   "wulong-karst": 13,
@@ -80,6 +81,8 @@ export default function DetailMap({ place, markerType }) {
   const center = useMemo(() => [location.latitude, location.longitude], [location.latitude, location.longitude]);
   const zoom = getDetailZoom(location);
   const subtitle = markerType === "university" ? location.campusNameMn || location.campusAddress : location.district;
+  const primaryName = getLocationPrimaryName(location);
+  const secondaryName = markerType === "university" ? getLocationSecondaryName(location) : "";
 
   return (
     <div className="detail-location-map">
@@ -87,7 +90,7 @@ export default function DetailMap({ place, markerType }) {
         className="detail-map-shell"
         data-location-id={location.id}
         data-detail-zoom={zoom}
-        aria-label={`${location.nameMn || location.nameEn} газрын зураг`}
+        aria-label={`${primaryName} газрын зураг`}
       >
         {!ready ? (
           <div className="map-loading">
@@ -115,7 +118,8 @@ export default function DetailMap({ place, markerType }) {
           <MapMarker location={location} focused isTouchMode={false} onSelect={() => {}} />
         </MapContainer>
         <div className="detail-map-label">
-          <strong>{location.nameMn || location.nameEn}</strong>
+          <strong>{primaryName}</strong>
+          {secondaryName ? <span>{secondaryName}</span> : null}
           {subtitle ? (
             <span>
               <MapPin size={15} aria-hidden="true" />

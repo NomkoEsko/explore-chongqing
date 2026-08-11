@@ -9,6 +9,7 @@ import MobileMapSheet from "./MobileMapSheet.jsx";
 import { allLocations } from "../data/mapLocations.js";
 import { attractions } from "../data/attractions.js";
 import { universities } from "../data/universities.js";
+import { getLocationPrimaryName, getLocationSecondaryName } from "../utils/placeNames.js";
 
 const CHONGQING_CENTER = [29.5605, 106.5572];
 const DEFAULT_ZOOM = 12;
@@ -212,8 +213,8 @@ export default function MapView({ compact = false }) {
             <strong>{visibleLocations.length ? `${visibleLocations.length} илэрц` : "Илэрц алга"}</strong>
             {searchResults.map((location) => (
               <button key={location.id} type="button" onClick={() => handleResultFocus(location)}>
-                <span>{location.nameMn || location.nameEn}</span>
-                <small>{location.nameZh || location.nameEn}</small>
+                <span>{getLocationPrimaryName(location)}</span>
+                <small>{getLocationSecondaryName(location) || location.nameEn}</small>
               </button>
             ))}
           </div>

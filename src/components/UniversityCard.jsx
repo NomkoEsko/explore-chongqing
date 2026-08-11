@@ -2,15 +2,18 @@ import { ArrowRight, MapPin, Sparkles, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageFrame from "./ImageFrame.jsx";
 import { formatAcademicTag, formatBcurRank, formatScholarshipType } from "../utils/localization.js";
+import { getUniversityPrimaryName, getUniversitySecondaryName } from "../utils/placeNames.js";
 
 export default function UniversityCard({ university }) {
   const scholarshipTypes = [...new Set(university.scholarships.map((scholarship) => scholarship.type))]
     .map(formatScholarshipType)
     .join(" / ");
   const bcurRank = formatBcurRank(university.bcur2026);
+  const primaryName = getUniversityPrimaryName(university);
+  const secondaryName = getUniversitySecondaryName(university);
 
   return (
-    <Link className="university-card" to={`/universities/${university.id}`} aria-label={`Дэлгэрэнгүй: ${university.nameMn}`}>
+    <Link className="university-card" to={`/universities/${university.id}`} aria-label={`Дэлгэрэнгүй: ${primaryName}`}>
       <ImageFrame
         src={university.image}
         alt={university.nameEn}
@@ -28,9 +31,8 @@ export default function UniversityCard({ university }) {
           <MapPin size={15} aria-hidden="true" />
           {university.district}
         </p>
-        <h2>{university.nameMn}</h2>
-        <p className="name-stack">{university.nameZh}</p>
-        <p className="name-stack">{university.nameEn}</p>
+        <h2>{primaryName}</h2>
+        <p className="name-stack">{secondaryName}</p>
         <div className="tag-list compact-tags">
           {university.strengths.slice(0, 4).map((strength) => (
             <span key={strength}>{formatAcademicTag(strength)}</span>

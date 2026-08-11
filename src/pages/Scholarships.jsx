@@ -9,6 +9,7 @@ import {
 } from "../data/scholarships.js";
 import { universities } from "../data/universities.js";
 import { formatScholarshipType, formatStudyLevels } from "../utils/localization.js";
+import { getUniversityPrimaryName, getUniversitySecondaryName } from "../utils/placeNames.js";
 
 function matchesFilter(item, activeFilter) {
   if (activeFilter === "all") return true;
@@ -68,8 +69,9 @@ export default function Scholarships() {
                     <p className="eyebrow">{formatScholarshipType(scholarship.type)}</p>
                     <h2>{scholarship.name}</h2>
                     <p className="name-stack">
-                      {scholarship.universityNameZh} / {scholarship.abbreviation}
+                      {getUniversityPrimaryName(scholarship)}
                     </p>
+                    <p className="name-stack">{getUniversitySecondaryName(scholarship)}</p>
                   </div>
                   <span className="status-pill">{scholarship.dataStatus}</span>
                 </div>

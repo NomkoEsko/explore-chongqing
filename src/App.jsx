@@ -16,6 +16,7 @@ import UniversityDetail from "./pages/UniversityDetail.jsx";
 import { attractions } from "./data/attractions.js";
 import { foods } from "./data/food.js";
 import { universities } from "./data/universities.js";
+import { getUniversityPrimaryName } from "./utils/placeNames.js";
 
 const ROUTE_TRANSITION_MS = 220;
 
@@ -52,7 +53,7 @@ function ScrollAndTitle() {
     const segments = location.pathname.split("/").filter(Boolean);
     let title = "Чунчин";
     if (segments[0] === "universities" && segments[1]) {
-      title = `${universities.find((item) => item.id === segments[1])?.nameMn || "Их сургууль"} | Чунчин`;
+      title = `${getUniversityPrimaryName(universities.find((item) => item.id === segments[1])) || "Их сургууль"} | Чунчин`;
     } else if (segments[0] === "universities") {
       title = "Чунчинд суралцах | Чунчин";
     } else if (segments[0] === "attractions" && segments[1]) {

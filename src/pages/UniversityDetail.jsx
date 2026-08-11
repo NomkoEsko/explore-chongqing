@@ -7,6 +7,7 @@ import PageHero from "../components/PageHero.jsx";
 import { scholarshipNotice } from "../data/scholarships.js";
 import { universities } from "../data/universities.js";
 import { formatAcademicTag, formatBcurRank, formatScholarshipType, formatStudyLevel, formatStudyLevels } from "../utils/localization.js";
+import { getUniversityPrimaryName, getUniversitySecondaryName } from "../utils/placeNames.js";
 
 function ListBlock({ title, items }) {
   if (!items?.length) return null;
@@ -59,6 +60,30 @@ function ScholarshipCard({ scholarship }) {
   );
 }
 
+function CampusInfoBlock({ campusInfo }) {
+  return (
+    <article className="content-panel campus-info-block">
+      <p className="eyebrow">🏫 Кампус</p>
+      <p className="campus-info-summary">{campusInfo.summary}</p>
+      <div className="campus-info-groups">
+        {campusInfo.groups.map((group) => (
+          <section className="campus-info-group" key={`${group.title}-${group.titleZh}`}>
+            <h3>
+              {group.title} — <span>{group.titleZh}</span>
+            </h3>
+            <ul className="clean-list">
+              {group.campuses.map((campus) => (
+                <li key={campus}>{campus}</li>
+              ))}
+            </ul>
+            {group.note ? <p className="campus-info-note">{group.note}</p> : null}
+          </section>
+        ))}
+      </div>
+    </article>
+  );
+}
+
 export default function UniversityDetail() {
   const { id } = useParams();
   const university = universities.find((item) => item.id === id);
@@ -76,9 +101,11 @@ export default function UniversityDetail() {
   }
 
   const bcurRank = formatBcurRank(university.bcur2026);
+  const primaryName = getUniversityPrimaryName(university);
+  const secondaryName = getUniversitySecondaryName(university);
   const info = [
     { label: "Товчлол", value: university.abbreviation },
-    { label: "Тэмдэглэсэн кампус", value: university.campusNameMn },
+    ...(university.campusInfo ? [] : [{ label: "🏫 Кампус", value: university.campusNameMn }]),
     { label: "Байршил", value: university.campusAddress },
     { label: "Суралцах түвшин", value: university.studyLevels.map(formatStudyLevel).join(", ") },
   ];
@@ -93,8 +120,8 @@ export default function UniversityDetail() {
     <main>
       <PageHero
         eyebrow="Их сургууль"
-        title={university.nameMn}
-        subtitle={`${university.nameZh} / ${university.nameEn} / ${university.abbreviation}`}
+        title={primaryName}
+        subtitle={secondaryName}
         image={university.image}
         imagePosition={university.imagePosition}
       >
@@ -116,10 +143,17 @@ export default function UniversityDetail() {
           <article className="content-panel">
             <p className="eyebrow">Танилцуулга</p>
             <h2>Сургуулийн тухай</h2>
-            <p>{university.overviewMn || university.overview}</p>
+            <p style={{ whiteSpace: "pre-line" }}>{university.overviewMn || university.overview}</p>
             
           </article>
-          <InfoGrid items={info} />
+          {university.campusInfo ? (
+            <div className="university-info-column">
+              <CampusInfoBlock campusInfo={university.campusInfo} />
+              <InfoGrid items={info} />
+            </div>
+          ) : (
+            <InfoGrid items={info} />
+          )}
         </div>
       </section>
 
@@ -173,26 +207,13 @@ export default function UniversityDetail() {
         <div className="container two-column">
           <article className="content-panel">
             <p className="eyebrow">Өргөдлийн хугацаа</p>
-            <h2>Эхэд баталгаатай дурдсан хугацаа</h2>
             <ul className="clean-list">
               {university.deadlines.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
           </article>
-          <article className="content-panel">
-            <p className="eyebrow">Кампус</p>
-            <h2>Өдөр тутмын орчин</h2>
-            <div className="tag-list">
-              {university.campusLife.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-            <a className="text-link external-link" href={university.applicationUrl} target="_blank" rel="noopener noreferrer">
-              Өргөдлийн албан холбоос
-              <ExternalLink size={16} aria-hidden="true" />
-            </a>
-          </article>
+         
         </div>
       </section>
 
@@ -200,7 +221,7 @@ export default function UniversityDetail() {
         <div className="container">
           <div className="section-heading">
             <p className="eyebrow">Газрын зураг</p>
-            <h2>{university.nameMn} газрын зураг дээр</h2>
+            <h2>{primaryName} газрын зураг дээр</h2>
           </div>
           <DetailMap place={university} markerType="university" />
         </div>
