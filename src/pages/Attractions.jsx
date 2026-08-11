@@ -14,11 +14,11 @@ export default function Attractions() {
     <main>
       <PageHero
         eyebrow="Аяллын хөтөч"
-        title={`Чунцины ${attractions.length} аяллын газар`}
+        title={`Чунчины ${attractions.length} аяллын газар`}
         subtitle="Алдартай газрууд, Citywalk, creative street, зураг авах цэг, байгаль, шөнийн хот."
         image={attractions[0].image}
         imagePosition={attractions[0].imagePosition}
-        label="Чунцины шөнийн үзэмж"
+        label="Чунчины шөнийн үзэмж"
       >
         <p>
           Карт бүрээс очих шалтгаан, цагийн зөвлөмж, тээврийн чиглэл,

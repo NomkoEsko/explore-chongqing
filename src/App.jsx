@@ -54,19 +54,19 @@ function ScrollAndTitle() {
     if (segments[0] === "universities" && segments[1]) {
       title = `${universities.find((item) => item.id === segments[1])?.nameMn || "Их сургууль"} | Explore Chongqing`;
     } else if (segments[0] === "universities") {
-      title = "Чунцинд суралцах | Explore Chongqing";
+      title = "Чунчинд суралцах | Explore Chongqing";
     } else if (segments[0] === "attractions" && segments[1]) {
       title = `${attractions.find((item) => item.id === segments[1])?.nameMn || "Аяллын газар"} | Explore Chongqing`;
     } else if (segments[0] === "attractions") {
-      title = "Чунцины аяллын газрууд | Explore Chongqing";
+      title = "Чунчины аяллын газрууд | Explore Chongqing";
     } else if (segments[0] === "food" && segments[1]) {
       title = `${foods.find((item) => item.id === segments[1])?.nameMn || "Хоол"} | Explore Chongqing`;
     } else if (segments[0] === "food") {
-      title = "Чунцины хоол | Explore Chongqing";
+      title = "Чунчины хоол | Explore Chongqing";
     } else if (segments[0] === "scholarships") {
       title = "Тэтгэлэг | Explore Chongqing";
     } else if (segments[0] === "about") {
-      title = "Чунцины тухай | Explore Chongqing";
+      title = "Чунчины тухай | Explore Chongqing";
     } else if (segments[0] === "mongolian-students") {
       title = "Монгол оюутнууд | Explore Chongqing";
     } else if (segments[0] === "map") {

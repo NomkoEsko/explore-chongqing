@@ -53,7 +53,7 @@ export default function FoodDetail() {
         <div className="container detail-grid">
           <article className="content-panel">
             <p className="eyebrow">Танилцуулга</p>
-            <h2>Чунцины амтыг хэрхэн мэдрэх вэ?</h2>
+            <h2>Чунчины амтыг хэрхэн мэдрэх вэ?</h2>
             <p>{food.overview}</p>
           </article>
           <InfoGrid items={infoItems} />

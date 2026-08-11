@@ -100,7 +100,7 @@ export default function UniversityDetail() {
         image={university.image}
         imagePosition={university.imagePosition}
       >
-        <p>{university.district} / Чунцин</p>
+        <p>{university.district} / Чунчин</p>
         <div className="hero-actions">
           <Link className="button primary" to={`/map?focus=${university.id}`}>
             <MapPinned size={18} aria-hidden="true" />

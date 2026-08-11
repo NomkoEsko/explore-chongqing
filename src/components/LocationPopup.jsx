@@ -22,7 +22,7 @@ export default function LocationPopup({ location }) {
         <strong>{location.nameEn}</strong>
         <p className="popup-district">
           <MapPin size={14} aria-hidden="true" />
-          {location.district || "Чунцин"}
+          {location.district || "Чунчин"}
         </p>
         <p>{summary}</p>
         <Link to={location.route}>

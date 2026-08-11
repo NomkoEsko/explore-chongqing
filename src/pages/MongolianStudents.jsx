@@ -15,7 +15,7 @@ export default function MongolianStudents() {
     <main>
       <PageHero
         eyebrow="Монгол оюутнууд"
-        title="Чунцин дахь Монгол оюутнууд"
+        title="Чунчин дахь Монгол оюутнууд"
         subtitle="Монгол оюутны холбооны баталгаатай мэдээллийг нэг дор цуглуулах хэсэг."
         image={universities[1].image}
         imagePosition={universities[1].imagePosition}

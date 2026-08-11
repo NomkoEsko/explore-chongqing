@@ -31,7 +31,7 @@ export default function Scholarships() {
         subtitle="Тэтгэлэг бүрийн багтах зүйлс, хугацаа, баталгаажсан байдал."
         image={universities[0].image}
         imagePosition={universities[0].imagePosition}
-        label="Чунцинд суралцах"
+        label="Чунчинд суралцах"
       >
         <p>
           Баталгаагүй 2026 оны дүн, эрэмбэ, өргөдлийн хугацааг зохиож нэмээгүй. Зарим

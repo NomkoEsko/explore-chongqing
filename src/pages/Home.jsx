@@ -16,7 +16,7 @@ import { universities } from "../data/universities.js";
 
 const categories = [
   {
-    title: "Чунцины тухай",
+    title: "Чунчины тухай",
     text: "Хот, амьдрал, уур амьсгал",
     to: "/about",
     icon: Building2,
@@ -45,7 +45,7 @@ const categories = [
   },
   {
     title: "Хоол",
-    text: "Чунцины алдарт амтууд",
+    text: "Чунчины алдарт амтууд",
     to: "/food",
     icon: Utensils,
     tone: "food",
@@ -68,7 +68,7 @@ export default function Home() {
         <div className="container">
           <div className="home-hero-copy">
             <p className="eyebrow">Explore Chongqing</p>
-            <h1>Чунциныг өөрийнхөөрөө судлаарай.</h1>
+            <h1>Чунчиныг өөрийнхөөрөө судлаарай.</h1>
             <p>
               Суралцах, тэтгэлэг, аялал, хоол, Монгол оюутны орчныг нэг дороос
               сонгож үзэх гар утсанд ээлтэй хөтөч.
@@ -115,7 +115,7 @@ export default function Home() {
 
           <div className="why-panel">
             <div>
-              <p className="eyebrow">Чунцин яагаад онцгой вэ?</p>
+              <p className="eyebrow">Чунчин яагаад онцгой вэ?</p>
               <h2>Шөнийн гэрэл, халуун амт, гол мөрөн, оюутны амьдрал нэг хотод багтдаг.</h2>
             </div>
             <div className="why-list">

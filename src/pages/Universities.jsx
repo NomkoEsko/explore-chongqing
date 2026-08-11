@@ -34,11 +34,11 @@ export default function Universities() {
     <main>
       <PageHero
         eyebrow="Суралцах хөтөч"
-        title="Чунцинд суралцах 11 сургууль"
+        title="Чунчинд суралцах 11 сургууль"
         subtitle="Монгол оюутанд зориулсан кампус, мэргэжил, тэтгэлгийн байдлын харьцуулалт."
         image={universities[0].image}
         imagePosition={universities[0].imagePosition}
-        label="Чунцины их сургуулийн кампус"
+        label="Чунчины их сургуулийн кампус"
       >
         <p>
           Цэргийн сургуулийг оруулаагүй. Баталгаагүй эрэмбэ, тэтгэлгийн

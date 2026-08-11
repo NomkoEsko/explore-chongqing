@@ -49,15 +49,15 @@ export default function About() {
   return (
     <main>
       <PageHero
-        eyebrow="Чунцины тухай"
+        eyebrow="Чунчины тухай"
         title="Уул, гол, гүүр, их сургууль, халуун амттай мегаполис."
         subtitle="重庆 / Chongqing — Монгол оюутанд зориулсан хотын товч хөтөч."
         image={attractions[5].image}
         imagePosition={attractions[5].imagePosition}
-        label="Чунцины хотын үзэмж"
+        label="Чунчины хотын үзэмж"
       >
         <p>
-          Чунцин бол Бээжин, Шанхай, Тяньжинтай адил төв засгийн газарт шууд
+          Чунчин бол Бээжин, Шанхай, Тяньжинтай адил төв засгийн газарт шууд
           харьяалагддаг 4 хотын нэг. Нийт нутаг дэвсгэр том учраас хүн амын
           тоог зөвхөн хотын төвийн хэмжээнд ойлгож болохгүй.
         </p>
@@ -66,10 +66,10 @@ export default function About() {
       <section className="section">
         <div className="container detail-grid">
           <article className="content-panel">
-            <p className="eyebrow">Чунцин товчхон</p>
+            <p className="eyebrow">Чунчин товчхон</p>
             <h2>Үндсэн мэдээлэл</h2>
             <p>
-              Чунцин нь Хятадын баруун өмнөд хэсэгт, Янцзы мөрний дээд урсгалд
+              Чунчин нь Хятадын баруун өмнөд хэсэгт, Янцзы мөрний дээд урсгалд
               байрладаг. 1997 онд тусгай захиргааны статустай болсон бөгөөд
               газар нутгийн хувьд шууд харьяа хотуудаас хамгийн том нь.
             </p>
@@ -93,7 +93,7 @@ export default function About() {
             <p className="eyebrow">Амьдрах зардал</p>
             <h2>Харьцангуй боломжийн сонголтууд</h2>
             <p>
-              Чунцин нь том хотын боломжтой боловч Бээжин, Шанхай зэрэг хоттой
+              Чунчин нь том хотын боломжтой боловч Бээжин, Шанхай зэрэг хоттой
               харьцуулахад оюутны амьдралд илүү боломжийн хувилбаруудтай.
               Сарын зардлыг яг ¥X гэж зохиож бичээгүй: зардал нь дотуур байр, хооллох
               хэв маяг, аялал, хэрэглээнээс их хамаарна.
@@ -121,7 +121,7 @@ export default function About() {
             <h2>Тээвэр</h2>
             <MetricList items={transportStats} />
             <p>
-              Чунцин нь Chengdu, Xi'an, Kunming, Guiyang зэрэг хотуудтай
+              Чунчин нь Chengdu, Xi'an, Kunming, Guiyang зэрэг хотуудтай
               холбогддог баруун өмнөдийн том тээврийн зангилаа.
             </p>
           </article>
@@ -181,7 +181,7 @@ export default function About() {
       <section className="section">
         <div className="container">
           <div className="section-heading">
-            <p className="eyebrow">Яагаад Чунцин гэж?</p>
+            <p className="eyebrow">Яагаад Чунчин гэж?</p>
             <h2>Суралцах, амьдрах, аялах, өсөх боломжийг нэг дор өгдөг хот.</h2>
           </div>
           <div className="about-grid">

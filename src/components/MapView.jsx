@@ -167,11 +167,11 @@ export default function MapView({ compact = false }) {
   }, []);
 
   return (
-    <section className={`map-stage ${compact ? "compact" : ""}`} aria-label="Чунцины интерактив газрын зураг">
+    <section className={`map-stage ${compact ? "compact" : ""}`} aria-label="Чунчины интерактив газрын зураг">
       <div className="map-topbar">
         <div>
           <p className="eyebrow">Газрын зураг</p>
-          <h1>Чунциныг газрын зургаар үзээрэй</h1>
+          <h1>Чунчиныг газрын зургаар үзээрэй</h1>
           <p>Их сургууль, аялал, хоол.</p>
         </div>
         <Link className="button ghost guide-link" to="/universities">

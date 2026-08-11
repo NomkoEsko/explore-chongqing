@@ -36,7 +36,7 @@ export default function AttractionDetail() {
         image={attraction.image}
         imagePosition={attraction.imagePosition}
       >
-        <p>{attraction.district} / Чунцин</p>
+        <p>{attraction.district} / Чунчин</p>
         <div className="hero-actions">
           <Link className="button primary" to={`/map?focus=${attraction.id}`}>
             <MapPinned size={18} aria-hidden="true" />

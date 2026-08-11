@@ -10,11 +10,11 @@ export default function Footer() {
             <strong>Explore Chongqing</strong>
           </Link>
           <p>Аялах / Суралцах / Таних</p>
-          <small>Чунцин хот ба суралцах боломжийг газрын зурагтай холбосон интерактив хөтөч.</small>
+          <small>Чунчин хот ба суралцах боломжийг газрын зурагтай холбосон интерактив хөтөч.</small>
         </div>
         <div>
           <h2>Цэс</h2>
-          <Link to="/about">Чунцины тухай</Link>
+          <Link to="/about">Чунчины тухай</Link>
           <Link to="/universities">Их сургуулиуд</Link>
           <Link to="/scholarships">Тэтгэлэг</Link>
           <Link to="/mongolian-students">Монгол оюутнууд</Link>

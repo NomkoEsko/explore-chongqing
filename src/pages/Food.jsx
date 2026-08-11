@@ -12,11 +12,11 @@ export default function Food() {
     <main>
       <PageHero
         eyebrow="Хоолны хөтөч"
-        title="Чунцины 7 гол амт"
+        title="Чунчины 7 гол амт"
         subtitle="重庆火锅, 重庆小面, 辣子鸡, 烤鱼, 串串, 酸辣粉, 抄手."
         image={foods[0].image}
         imagePosition={foods[0].imagePosition}
-        label="Чунцин халуун тогоо"
+        label="Чунчин халуун тогоо"
       >
         <p>
           Хоол бүр тусдаа дэлгэрэнгүй хуудсаар соёл, амтлах газар,

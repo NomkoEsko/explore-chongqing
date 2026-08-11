@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "Нүүр", to: "/" },
-  { label: "Чунцины тухай", to: "/about" },
+  { label: "Чунчины тухай", to: "/about" },
   { label: "Их сургуулиуд", to: "/universities" },
   { label: "Тэтгэлэг", to: "/scholarships" },
   { label: "Аяллын газрууд", to: "/attractions" },

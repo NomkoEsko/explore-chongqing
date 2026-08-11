@@ -26,7 +26,7 @@ const cscFullPackage = [
 export const universities = [
   {
     id: "chongqing-university",
-    nameMn: "Чунцины их сургууль",
+    nameMn: "Чунчины их сургууль",
     nameZh: "重庆大学",
     nameEn: "Chongqing University",
     abbreviation: "CQU",
@@ -45,7 +45,7 @@ export const universities = [
     shortDescriptionMn:
       "Инженер, архитектур, компьютер, бизнесийн чиглэлд хүчтэй; CQU President болон Mayor Scholarship-ийн 2026 мэдээлэл тодорхой.",
     description:
-      "Чунцины нэр хүндтэй, судалгааны хүчтэй цогц их сургуулиудын нэг.",
+      "Чунчины нэр хүндтэй, судалгааны хүчтэй цогц их сургуулиудын нэг.",
     overviewMn:
       "重庆大学 (CQU) нь Монгол оюутанд инженер, архитектур, компьютерын шинжлэх ухаан, дизайн, бизнесийн чиглэлээр хамгийн хүчтэй сонголтуудын нэг. Эх мэдээлэлд CQU-ийн 2026 President Scholarship болон Mayor Scholarship-ийн өргөдлийн хугацаа, багтах зүйлс илүү тодорхой дурдагдсан тул тэтгэлгийн хуудсанд баталгаатай хэсгийг тусад нь харууллаа.",
     overview:
@@ -214,7 +214,7 @@ export const universities = [
   },
   {
     id: "cq-posts-telecom",
-    nameMn: "Чунцины шуудан, харилцаа холбооны их сургууль",
+    nameMn: "Чунчины шуудан, харилцаа холбооны их сургууль",
     nameZh: "重庆邮电大学",
     nameEn: "Chongqing University of Posts and Telecommunications",
     abbreviation: "CQUPT",
@@ -235,9 +235,9 @@ export const universities = [
     description:
       "IT, AI, холбоо, программ хангамжийн чиглэл сонирхогчдод тохиромжтой технологийн сургууль.",
     overviewMn:
-      "重庆邮电大学 (CQUPT) нь IT, AI, компьютер, харилцаа холбооны чиглэлээр Чунцинд сурах хүсэлтэй Монгол оюутанд сонирхолтой сонголт. Эх мэдээлэлд CSC, Chongqing Mayor Scholarship, CQUPT President Scholarship, Huawei Scholarship дурдагдсан боловч 2026 оны яг дүн зарим хэсэгт баталгаажаагүй гэж анхааруулсан.",
+      "重庆邮电大学 (CQUPT) нь IT, AI, компьютер, харилцаа холбооны чиглэлээр Чунчинд сурах хүсэлтэй Монгол оюутанд сонирхолтой сонголт. Эх мэдээлэлд CSC, Chongqing Mayor Scholarship, CQUPT President Scholarship, Huawei Scholarship дурдагдсан боловч 2026 оны яг дүн зарим хэсэгт баталгаажаагүй гэж анхааруулсан.",
     overview:
-      "重庆邮电大学 (CQUPT) нь IT, AI, компьютер, харилцаа холбооны чиглэлээр Чунцинд сурах хүсэлтэй Монгол оюутанд сонирхолтой сонголт. Эх мэдээлэлд CSC, Chongqing Mayor Scholarship, CQUPT President Scholarship, Huawei Scholarship дурдагдсан боловч 2026 оны яг дүн зарим хэсэгт баталгаажаагүй гэж анхааруулсан.",
+      "重庆邮电大学 (CQUPT) нь IT, AI, компьютер, харилцаа холбооны чиглэлээр Чунчинд сурах хүсэлтэй Монгол оюутанд сонирхолтой сонголт. Эх мэдээлэлд CSC, Chongqing Mayor Scholarship, CQUPT President Scholarship, Huawei Scholarship дурдагдсан боловч 2026 оны яг дүн зарим хэсэгт баталгаажаагүй гэж анхааруулсан.",
     bcur2026: {
       rank: 147,
       score: 219.3,
@@ -300,7 +300,7 @@ export const universities = [
   },
   {
     id: "cq-jiaotong-university",
-    nameMn: "Чунцины зам тээврийн их сургууль",
+    nameMn: "Чунчины зам тээврийн их сургууль",
     nameZh: "重庆交通大学",
     nameEn: "Chongqing Jiaotong University",
     abbreviation: "CQJTU",
@@ -380,7 +380,7 @@ export const universities = [
   },
   {
     id: "cq-normal-university",
-    nameMn: "Чунцины багшийн их сургууль",
+    nameMn: "Чунчины багшийн их сургууль",
     nameZh: "重庆师范大学",
     nameEn: "Chongqing Normal University",
     abbreviation: "CQNU",
@@ -471,7 +471,7 @@ export const universities = [
   },
   {
     id: "cq-university-technology",
-    nameMn: "Чунцины технологийн их сургууль",
+    nameMn: "Чунчины технологийн их сургууль",
     nameZh: "重庆理工大学",
     nameEn: "Chongqing University of Technology",
     abbreviation: "CQUT",
@@ -547,7 +547,7 @@ export const universities = [
   },
   {
     id: "cq-arts-sciences",
-    nameMn: "Чунцины урлаг, шинжлэх ухааны их сургууль",
+    nameMn: "Чунчины урлаг, шинжлэх ухааны их сургууль",
     nameZh: "重庆文理学院",
     nameEn: "Chongqing University of Arts and Sciences",
     abbreviation: "CQWU",
@@ -867,7 +867,7 @@ export const universities = [
   },
   {
     id: "ccibe",
-    nameMn: "Чунцины олон улсын бизнес, эдийн засгийн коллеж",
+    nameMn: "Чунчины олон улсын бизнес, эдийн засгийн коллеж",
     nameZh: "重庆对外经贸学院",
     nameEn: "Chongqing College of International Business and Economics",
     abbreviation: "CCIBE",

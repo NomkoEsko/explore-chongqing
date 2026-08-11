@@ -27,7 +27,7 @@ export default function MobileMapSheet({ location, onClose }) {
         <p className="name-stack">{location.nameEn}</p>
         <p className="popup-district">
           <MapPin size={15} aria-hidden="true" />
-          {location.district || "Чунцин"}
+          {location.district || "Чунчин"}
         </p>
         <p className="sheet-summary">{summary}</p>
         <Link className="button primary" to={location.route}>
