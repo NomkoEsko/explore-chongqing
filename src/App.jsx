@@ -1,67 +1,74 @@
 import { useEffect } from "react";
-import { Link, Route, Routes, useLocation } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import BackToTop from "./components/BackToTop.jsx";
-import HomePage from "./pages/HomePage.jsx";
-import QRPage from "./pages/QRPage.jsx";
+import { Route, Routes, useLocation } from "react-router-dom";
+import MainLayout from "./components/MainLayout.jsx";
+import About from "./pages/About.jsx";
+import AttractionDetail from "./pages/AttractionDetail.jsx";
+import Attractions from "./pages/Attractions.jsx";
+import Food from "./pages/Food.jsx";
+import FoodDetail from "./pages/FoodDetail.jsx";
+import Home from "./pages/Home.jsx";
+import MapPage from "./pages/MapPage.jsx";
+import MongolianStudents from "./pages/MongolianStudents.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import Scholarships from "./pages/Scholarships.jsx";
+import Universities from "./pages/Universities.jsx";
+import UniversityDetail from "./pages/UniversityDetail.jsx";
+import { attractions } from "./data/attractions.js";
+import { foods } from "./data/food.js";
+import { universities } from "./data/universities.js";
 
 function ScrollAndTitle() {
   const location = useLocation();
 
   useEffect(() => {
-    const title =
-      location.pathname === "/qr"
-        ? "QR код | Улаанбаатар хотын танилцуулга"
-        : "Улаанбаатар хотын танилцуулга";
-    document.title = title;
-
-    if (location.hash) {
-      window.setTimeout(() => {
-        document
-          .querySelector(location.hash)
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 80);
-      return;
+    const segments = location.pathname.split("/").filter(Boolean);
+    let title = "Explore Chongqing";
+    if (segments[0] === "universities" && segments[1]) {
+      title = `${universities.find((item) => item.id === segments[1])?.nameMn || "Их сургууль"} | Explore Chongqing`;
+    } else if (segments[0] === "universities") {
+      title = "Чунцинд суралцах | Explore Chongqing";
+    } else if (segments[0] === "attractions" && segments[1]) {
+      title = `${attractions.find((item) => item.id === segments[1])?.nameMn || "Аяллын газар"} | Explore Chongqing`;
+    } else if (segments[0] === "attractions") {
+      title = "Чунцины аяллын газрууд | Explore Chongqing";
+    } else if (segments[0] === "food" && segments[1]) {
+      title = `${foods.find((item) => item.id === segments[1])?.nameMn || "Хоол"} | Explore Chongqing`;
+    } else if (segments[0] === "food") {
+      title = "Чунцины хоол | Explore Chongqing";
+    } else if (segments[0] === "scholarships") {
+      title = "Тэтгэлэг | Explore Chongqing";
+    } else if (segments[0] === "about") {
+      title = "Чунцины тухай | Explore Chongqing";
+    } else if (segments[0] === "mongolian-students") {
+      title = "Монгол оюутнууд | Explore Chongqing";
+    } else if (segments[0] === "map") {
+      title = "Газрын зураг | Explore Chongqing";
     }
+    document.title = title;
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [location]);
+  }, [location.pathname, location.search]);
 
   return null;
 }
 
-function NotFoundPage() {
-  return (
-    <main className="page-shell not-found">
-      <div className="container narrow">
-        <p className="eyebrow">Хуудас олдсонгүй</p>
-        <h1>Ийм хаягтай хуудас одоогоор байхгүй байна.</h1>
-        <p>
-          Доорх товчоор нүүр хуудас руу буцаж Улаанбаатар хотын танилцуулгыг
-          үргэлжлүүлэн үзнэ үү.
-        </p>
-        <Link className="button primary" to="/">
-          <ArrowLeft size={18} aria-hidden="true" />
-          Нүүр хуудас руу буцах
-        </Link>
-      </div>
-    </main>
-  );
-}
-
 export default function App() {
   return (
-    <>
+    <MainLayout>
       <ScrollAndTitle />
-      <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/qr" element={<QRPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/universities" element={<Universities />} />
+        <Route path="/universities/:id" element={<UniversityDetail />} />
+        <Route path="/attractions" element={<Attractions />} />
+        <Route path="/attractions/:id" element={<AttractionDetail />} />
+        <Route path="/food" element={<Food />} />
+        <Route path="/food/:id" element={<FoodDetail />} />
+        <Route path="/scholarships" element={<Scholarships />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/mongolian-students" element={<MongolianStudents />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
-      <BackToTop />
-    </>
+    </MainLayout>
   );
 }

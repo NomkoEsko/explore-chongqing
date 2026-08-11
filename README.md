@@ -1,65 +1,56 @@
-# Улаанбаатар хотын танилцуулга
+# Explore Chongqing
 
-React + Vite дээр хийсэн гар утсанд ээлтэй загвар вэб сайт болон тусдаа хэвлэх боломжтой PDF товхимол.
+React + Vite дээр хийсэн интерактив Chongqing хот, аялал, их сургууль, хоол, тэтгэлгийн guide веб сайт.
 
-## Суулгах
+## Install
 
 ```bash
 npm install
 ```
 
-## Хөгжүүлэлт
+## Development
 
 ```bash
 npm run dev
 ```
 
-## Build хийх
+## Build
 
 ```bash
 npm run build
 ```
 
-## PDF товхимол дахин үүсгэх
+## Гол боломжууд
 
-```bash
-npm run pdf
-```
+- Нүүр хуудсан дээр шууд харагдах Leaflet / OpenStreetMap интерактив газрын зураг
+- University, Attraction, Food marker filter
+- Marker hover popup, marker click detail route
+- Universities, Attractions, Food, Scholarships, About Chongqing тусдаа page
+- University / attraction / food detail pages
+- `/?focus=...` query ашиглан marker дээр focus хийх боломж
+- Mobile hamburger navigation, responsive card layout
 
-PDF файл `public/downloads/ulaanbaatar-brochure.pdf` хаягт үүснэ. Вэб сайтын татах товч энэ файлыг ашиглана.
+## Data шинэчлэх
 
-## Текст, зураг солих
+- Их сургуулиуд: `src/data/universities.js`
+- Аяллын газрууд: `src/data/attractions.js`
+- Хоолнууд: `src/data/food.js`
+- Тэтгэлэг: `src/data/scholarships.js`
 
-- Хотын бүх засварлах агуулга `src/data/cityContent.js` файлд байна.
-- Зураг одоогоор солих боломжтой placeholder хэлбэртэй. Нийтлэхийн өмнө эрхтэй, өндөр чанартай хотын зураг ашиглана.
-- PDF-ийн агуулгыг `scripts/generate_brochure.py` файлд засварлаад `npm run pdf` командаар дахин үүсгэнэ.
-
-## QR кодын URL тохируулах
-
-Vite орчинд дараах утгыг `.env` файлд тохируулна:
-
-```bash
-VITE_WEBSITE_PUBLIC_URL=https://your-site.example/
-VITE_PDF_PUBLIC_URL=https://your-pdf-host.example/ulaanbaatar-brochure.pdf
-```
-
-Код дотор эдгээр нь `WEBSITE_PUBLIC_URL` болон `PDF_PUBLIC_URL` тохиргоо болгон ашиглагдана. Локал хөгжүүлэлт дээр нийтийн URL байхгүй бол QR хуудас тодорхой сануулга харуулж, түр локал холбоосоор QR үүсгэнэ.
+Зураг load хийхгүй бол fallback design гарна. Нийтлэхээс өмнө Chongqing-той холбоотой, ашиглах эрхтэй бодит зургаар солихыг зөвлөж байна.
 
 ## Байршуулах
 
-1. `npm run build` ажиллуулна.
-2. `dist` хавтсыг Vercel эсвэл статик hosting үйлчилгээ рүү байршуулна.
-3. React Router route refresh ажиллуулахын тулд `vercel.json` дахь rewrite тохиргоог хадгална.
-4. PDF файлыг байнгын нийтийн URL дээр байршуулна.
-5. `.env` дахь `VITE_WEBSITE_PUBLIC_URL`, `VITE_PDF_PUBLIC_URL` утгыг эцсийн URL-аар сольж build хийнэ.
-6. `/qr` хуудаснаас хоёр QR кодыг тус тусад нь PNG хэлбэрээр татаж авна.
+1. `npm run build`
+2. Vercel дээр framework preset: Vite
+3. Build command: `npm run build`
+4. Output directory: `dist`
+5. React Router refresh-д зориулсан `vercel.json` rewrite хадгалагдсан.
 
-## Нийтлэхээс өмнө баталгаажуулах зүйлс
+## Дараагийн хувилбарт сайжруулах зүйлс
 
-- Албан статистик, хүн ам, газар нутгийн хэмжээ
-- Музей, үзвэрийн цагийн хуваарь, үнэ
-- Нийтийн тээврийн бодит чиглэл, төлбөр
-- Албан холбоо барих утас, имэйл, хаяг
-- Газрын зураг болон зураг ашиглах эрх
-
-Энэ төсөл нь албан ёсны Улаанбаатар хотын засгийн газрын сайт биш. Нийтлэхээс өмнө бүх мэдээллийг албан эх сурвалжаар шалгана.
+- Бүх сургууль, тэтгэлэг, admission мэдээллийг official source-р баталгаажуулах
+- Зургийн лиценз болон Chongqing relevance шалгах
+- Илүү нарийн search/filter нэмэх
+- Хятад / Монгол / Англи хэлний language switcher нэмэх
+- Actual admissions links болон official contact links нэмэх
