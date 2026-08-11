@@ -1695,6 +1695,11 @@ details summary {
   color: var(--red);
 }
 
+.student-page-stack {
+  display: grid;
+  gap: 18px;
+}
+
 .student-future-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -1776,6 +1781,48 @@ details summary {
 
 .student-activity-link {
   justify-self: start;
+}
+
+.student-year-card {
+  gap: 16px;
+}
+
+.student-year-card h3 {
+  color: var(--red);
+  font-size: 1.22rem;
+  line-height: 1.25;
+}
+
+.student-month-list {
+  display: grid;
+  gap: 12px;
+}
+
+.student-month-card {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 252, 246, 0.72);
+}
+
+.student-month-card h4 {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.student-month-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.student-month-card li {
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .mobile-bottom-nav {
