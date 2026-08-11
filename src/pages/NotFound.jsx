@@ -6,7 +6,7 @@ export default function NotFound() {
       <div className="container narrow">
         <BackButton>Газрын зураг руу буцах</BackButton>
         <h1>Хуудас олдсонгүй</h1>
-        <p>Таны нээсэн хуудас Explore Chongqing сайтад байхгүй байна.</p>
+        <p>Таны нээсэн хуудас Чунчин сайтад байхгүй байна.</p>
       </div>
     </main>
   );

@@ -1519,6 +1519,10 @@ details summary {
   padding-left: 18px;
 }
 
+.climate-card-list .clean-list {
+  margin-top: 12px;
+}
+
 .clean-list li {
   color: var(--muted);
 }

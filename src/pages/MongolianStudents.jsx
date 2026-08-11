@@ -1,7 +1,7 @@
 import { Camera, GraduationCap, Link as LinkIcon, MessageCircle, UsersRound } from "lucide-react";
 import PageHero from "../components/PageHero.jsx";
 import { mongolianAssociation } from "../data/aboutChongqing.js";
-import { universities } from "../data/universities.js";
+import { IS } from "../data/universities.js";
 
 const futureSections = [
   { title: "Үйл ажиллагаа", text: "Үйл ажиллагааны мэдээлэл удахгүй нэмэгдэнэ.", icon: GraduationCap },
@@ -14,14 +14,12 @@ export default function MongolianStudents() {
   return (
     <main>
       <PageHero
-        eyebrow="Монгол оюутнууд"
-        title="Чунчин дахь Монгол оюутнууд"
-        subtitle="Монгол оюутны холбооны баталгаатай мэдээллийг нэг дор цуглуулах хэсэг."
-        image={universities[1].image}
-        imagePosition={universities[1].imagePosition}
-        label="Монгол оюутны орчин"
+        eyebrow="Оюутны холбоо"
+        title="Чунчин дахь Оюутны холбоо"
+        image={IS[0].image}
+        imagePosition={IS[0].imagePosition}
+        label="Монгол Монгол оюутнууд"
       >
-        <p>{mongolianAssociation.text}</p>
       </PageHero>
 
       <section className="section students-section">

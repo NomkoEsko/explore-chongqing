@@ -7,9 +7,9 @@ const links = [
   { label: "Чунчины тухай", to: "/about" },
   { label: "Их сургуулиуд", to: "/universities" },
   { label: "Тэтгэлэг", to: "/scholarships" },
-  { label: "Аяллын газрууд", to: "/attractions" },
+  { label: "Онцлох газрууд", to: "/attractions" },
   { label: "Хоол", to: "/food" },
-  { label: "Монгол оюутнууд", to: "/mongolian-students" },
+  { label: "Оюутны холбоо", to: "/mongolian-students" },
   { label: "Газрын зураг", to: "/map" },
 ];
 
@@ -24,9 +24,9 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="container nav-shell">
-        <Link className="brand" to="/" aria-label="Explore Chongqing нүүр хуудас">
+        <Link className="brand" to="/" aria-label="Чунчин нүүр хуудас">
           <img className="brand-logo" src="/images/icon/site-logo.webp" alt="" aria-hidden="true" />
-          <strong>Explore Chongqing</strong>
+          <strong>Чунчин</strong>
         </Link>
         <nav className={`main-nav ${open ? "open" : ""}`} aria-label="Үндсэн цэс">
           {links.map((link) => (

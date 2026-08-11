@@ -19,7 +19,7 @@ export default function FoodDetail() {
         <div className="container narrow">
           <BackButton>Газрын зураг руу буцах</BackButton>
           <h1>Байршил олдсонгүй</h1>
-          <p>Энэ хоолны мэдээлэл одоогийн Explore Chongqing өгөгдөлд байхгүй байна.</p>
+          <p>Энэ хоолны мэдээлэл одоогийн Чунчин өгөгдөлд байхгүй байна.</p>
         </div>
       </main>
     );

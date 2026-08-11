@@ -69,7 +69,7 @@ export default function UniversityDetail() {
         <div className="container narrow">
           <BackButton>Газрын зураг руу буцах</BackButton>
           <h1>Байршил олдсонгүй</h1>
-          <p>Энэ их сургууль одоогийн Explore Chongqing мэдээлэлд байхгүй байна.</p>
+          <p>Энэ их сургууль одоогийн Чунчин мэдээлэлд байхгүй байна.</p>
         </div>
       </main>
     );
@@ -78,10 +78,8 @@ export default function UniversityDetail() {
   const bcurRank = formatBcurRank(university.bcur2026);
   const info = [
     { label: "Товчлол", value: university.abbreviation },
-    { label: "Дүүрэг", value: university.district },
     { label: "Тэмдэглэсэн кампус", value: university.campusNameMn },
-    { label: "Албан хаяг", value: university.campusAddress },
-    { label: "Сургуулийн төрөл", value: university.type },
+    { label: "Байршил", value: university.campusAddress },
     { label: "Суралцах түвшин", value: university.studyLevels.map(formatStudyLevel).join(", ") },
   ];
 
@@ -119,7 +117,7 @@ export default function UniversityDetail() {
             <p className="eyebrow">Танилцуулга</p>
             <h2>Сургуулийн тухай</h2>
             <p>{university.overviewMn || university.overview}</p>
-            {university.rankingNote ? <p className="notice">{university.rankingNote}</p> : null}
+            
           </article>
           <InfoGrid items={info} />
         </div>

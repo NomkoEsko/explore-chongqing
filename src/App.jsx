@@ -50,27 +50,27 @@ function ScrollAndTitle() {
 
   useEffect(() => {
     const segments = location.pathname.split("/").filter(Boolean);
-    let title = "Explore Chongqing";
+    let title = "Чунчин";
     if (segments[0] === "universities" && segments[1]) {
-      title = `${universities.find((item) => item.id === segments[1])?.nameMn || "Их сургууль"} | Explore Chongqing`;
+      title = `${universities.find((item) => item.id === segments[1])?.nameMn || "Их сургууль"} | Чунчин`;
     } else if (segments[0] === "universities") {
-      title = "Чунчинд суралцах | Explore Chongqing";
+      title = "Чунчинд суралцах | Чунчин";
     } else if (segments[0] === "attractions" && segments[1]) {
-      title = `${attractions.find((item) => item.id === segments[1])?.nameMn || "Аяллын газар"} | Explore Chongqing`;
+      title = `${attractions.find((item) => item.id === segments[1])?.nameMn || "Аяллын газар"} | Чунчин`;
     } else if (segments[0] === "attractions") {
-      title = "Чунчины аяллын газрууд | Explore Chongqing";
+      title = "Чунчины Онцлох газрууд | Чунчин";
     } else if (segments[0] === "food" && segments[1]) {
-      title = `${foods.find((item) => item.id === segments[1])?.nameMn || "Хоол"} | Explore Chongqing`;
+      title = `${foods.find((item) => item.id === segments[1])?.nameMn || "Хоол"} | Чунчин`;
     } else if (segments[0] === "food") {
-      title = "Чунчины хоол | Explore Chongqing";
+      title = "Чунчины хоол | Чунчин";
     } else if (segments[0] === "scholarships") {
-      title = "Тэтгэлэг | Explore Chongqing";
+      title = "Тэтгэлэг | Чунчин";
     } else if (segments[0] === "about") {
-      title = "Чунчины тухай | Explore Chongqing";
+      title = "Чунчины тухай | Чунчин";
     } else if (segments[0] === "mongolian-students") {
-      title = "Монгол оюутнууд | Explore Chongqing";
+      title = "Оюутны холбоо | Чунчин";
     } else if (segments[0] === "map") {
-      title = "Газрын зураг | Explore Chongqing";
+      title = "Газрын зураг | Чунчин";
     }
     document.title = title;
   }, [location.pathname, location.search]);

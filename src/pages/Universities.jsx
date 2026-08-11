@@ -32,20 +32,7 @@ export default function Universities() {
 
   return (
     <main>
-      <PageHero
-        eyebrow="Суралцах хөтөч"
-        title="Чунчинд суралцах 11 сургууль"
-        subtitle="Монгол оюутанд зориулсан кампус, мэргэжил, тэтгэлгийн байдлын харьцуулалт."
-        image={universities[0].image}
-        imagePosition={universities[0].imagePosition}
-        label="Чунчины их сургуулийн кампус"
-      >
-        <p>
-          Цэргийн сургуулийг оруулаагүй. Баталгаагүй эрэмбэ, тэтгэлгийн
-          дүн, өргөдлийн хугацааг зохиож нэмэлгүй, албан зарлал шалгах
-          холбоостой нь харуулж байна.
-        </p>
-      </PageHero>
+      
       <section className="section">
         <div className="container">
           <div className="university-filter" aria-label="Их сургуулийн чиглэлийн шүүлтүүр">

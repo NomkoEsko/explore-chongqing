@@ -37,7 +37,7 @@ const categories = [
     tone: "scholarship",
   },
   {
-    title: "Аяллын газрууд",
+    title: "Онцлох газрууд",
     text: "Алдартай газар, Citywalk, зураг авах цэгүүд",
     to: "/attractions",
     icon: Landmark,
@@ -51,8 +51,8 @@ const categories = [
     tone: "food",
   },
   {
-    title: "Монгол оюутнууд",
-    text: "Оюутны орчин",
+    title: "Оюутны холбоо",
+    text: "Монгол оюутнууд",
     to: "/mongolian-students",
     icon: UsersRound,
     tone: "students",
@@ -67,15 +67,15 @@ export default function Home() {
       <section className="home-hero">
         <div className="container">
           <div className="home-hero-copy">
-            <p className="eyebrow">Explore Chongqing</p>
-            <h1>Чунчиныг өөрийнхөөрөө судлаарай.</h1>
+            <p className="eyebrow">Чунчин</p>
+            <h1>Welcome to Чунчин</h1>
             {/* <p>
               Суралцах, тэтгэлэг, аялал, хоол, Монгол оюутны орчныг нэг дороос
               сонгож үзэх гар утсанд ээлтэй хөтөч.
             </p> */}
           </div>
 
-          <div className="hub-grid" aria-label="Explore Chongqing үндсэн ангиллууд">
+          <div className="hub-grid" aria-label="Чунчин үндсэн ангиллууд">
             {categories.map(({ title, text, to, icon: Icon, tone }) => (
               <Link className={`hub-card ${tone}`} key={title} to={to}>
                 <span className="hub-icon">

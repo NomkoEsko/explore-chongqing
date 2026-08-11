@@ -22,7 +22,97 @@ const cscFullPackage = [
   "Даатгал: багтана",
   "Амьжиргааны тэтгэмж: Бакалавр ¥2,500/month, Магистр ¥3,000/month, Доктор ¥3,500/month гэж эхэд дурдсан",
 ];
-
+export const IS = [
+  {
+    id: "chongqing-university",
+    nameMn: "Чунчины их сургууль",
+    nameZh: "重庆大学",
+    nameEn: "Chongqing University",
+    abbreviation: "CQU",
+    category: "university",
+    district: "Шапинба дүүрэг",
+    type: "Үндэсний гол цогц их сургууль",
+    founded: "Албан түүхийг шалгана",
+    latitude: 29.56792,
+    longitude: 106.46549,
+    campusNameMn: "Campus A - олон улсын оюутны албатай үндсэн кампус",
+    campusAddress: "Campus A, No.174 Shazheng St., Shapingba District, Chongqing 400044",
+    coordinateSource: "CQU олон улсын оюутны албаны албан хаяг; OpenStreetMap way 412480741 / Mapcarta",
+    coordinateSourceUrl: "https://mapcarta.com/W412480741",
+    image: "/images/universities/IS.jpg",
+    imagePosition: "center center",
+    shortDescriptionMn:
+      "Инженер, архитектур, компьютер, бизнесийн чиглэлд хүчтэй; CQU President болон Mayor Scholarship-ийн 2026 мэдээлэл тодорхой.",
+    description:
+      "Чунчины нэр хүндтэй, судалгааны хүчтэй цогц их сургуулиудын нэг.",
+    overviewMn:
+      "Chongqing University (CQU) нь 1929 онд байгуулагдсан, Хятадын Боловсролын яаманд шууд харьяалагддаг үндэсний хэмжээний тэргүүлэх, судалгааны чиглэлийн цогц их сургууль юм. Тус сургууль нь “211 Project”, “985 Project” болон “Double First-Class” хөтөлбөрт багтдаг бөгөөд Хятадын баруун бүсийн нэр хүндтэй их сургуулиудын нэг юм. ",
+    overview:
+      "Chongqing University (CQU) нь 1929 онд байгуулагдсан, Хятадын Боловсролын яаманд шууд харьяалагддаг үндэсний хэмжээний тэргүүлэх, судалгааны чиглэлийн цогц их сургууль юм. Тус сургууль нь “211 Project”, “985 Project” болон “Double First-Class” хөтөлбөрт багтдаг бөгөөд Хятадын баруун бүсийн нэр хүндтэй их сургуулиудын нэг юм. ",
+    bcur2026: {
+      rank: 34,
+      score: 436.0,
+      sourceUrl: "https://www.shanghairanking.com/rankings/bcur/2026",
+    },
+    ranking: "2026 ShanghaiRanking BCUR: #34 · 436.0",
+    rankingNote:
+      "2026 ShanghaiRanking Best Chinese Universities Ranking (BCUR)-ийн албан жагсаалтаас авсан.",
+    strengths: ["Engineering", "Architecture", "Computer", "Design", "Business"],
+    majors: ["Civil Engineering", "Architecture", "Computer Science", "Mechanical Engineering", "Business"],
+    studyLevels: ["Bachelor", "Master", "PhD"],
+    languageRequirements: [
+      "Хөтөлбөрийн хэлээс хамаарч HSK эсвэл англи хэлний түвшний гэрчилгээ шаардагдана",
+      "Тухайн жилийн major list дээрээс хичээлийн хэлийг шалгана",
+    ],
+    eligibility: standardEligibility,
+    requiredDocuments: commonDocuments,
+    deadlines: ["President Scholarship: 2026 оны 5 сарын 17", "Mayor Scholarship: 2026 оны 6 сарын 16"],
+    campusLife: ["Том кампус", "Дотуур байр", "Оюутны хоолны газар", "Хотын төв дүүргүүдтэй ойр"],
+    officialUrl: "https://study.cqu.edu.cn/",
+    applicationUrl: "https://study.cqu.edu.cn/",
+    scholarships: [
+      {
+        type: "CSC",
+        name: "Chinese Government Scholarship (CSC)",
+        levels: ["Bachelor", "Master", "PhD"],
+        coverage: cscFullPackage,
+        amount: "Бакалавр ¥2,500/month; Магистр ¥3,000/month; Доктор ¥3,500/month",
+        criteria: ["CQU сургууль дотроо сонгон шалгаруулж, эцсийн шийдвэрийг CSC гаргадаг"],
+        deadline: "CQU-ийн 2026 CSC хугацааг тухайн жилийн CSC зарлалаас шалгана",
+        dataStatus: "Ерөнхий CSC стандарт; CQU хүлээн авах сургууль",
+      },
+      {
+        type: "University Scholarship",
+        name: "Chongqing University President Scholarship",
+        levels: ["Bachelor", "Master", "PhD"],
+        coverage: [
+          "First Class: 100% сургалтын төлбөр + дотуур байр + даатгал + сарын тэтгэмж",
+          "Second Class: 100% сургалтын төлбөр",
+          "Third Class: 50% сургалтын төлбөр",
+          "Дотуур байр байхгүй бол ¥700/month байрны нэмэлт дэмжлэг гэж эхэд дурдсан",
+        ],
+        amount: "First Class тэтгэмж: Бакалавр ¥1,500/month, Магистр ¥1,800/month, Доктор ¥2,200/month; даатгал ¥800/year",
+        criteria: ["Сонгон шалгаруулалттай", "Бусад тэтгэлэгтэй давхардахгүй нөхцөл үйлчилж болно"],
+        deadline: "2026 оны 5 сарын 17",
+        dataStatus: "2026 онд баталгаажсан",
+      },
+      {
+        type: "Mayor",
+        name: "Chongqing Mayor Scholarship",
+        levels: ["Master", "PhD"],
+        coverage: [
+          "Амьжиргааны тэтгэмж хэлбэрээр олгоно",
+          "CQU сургалтын төлбөрийг нэмж чөлөөлнө",
+          "Байр болон бусад зардлыг оюутан өөрөө хариуцна",
+        ],
+        amount: "Магистр ¥30,000/year; Доктор ¥35,000/year",
+        criteria: ["Магистр / докторын өргөдөл гаргагчид илүү тохиромжтой", "Сонгон шалгаруулалттай"],
+        deadline: "2026 оны 6 сарын 16",
+        dataStatus: "2026 онд баталгаажсан",
+      },
+    ],
+  },
+];
 export const universities = [
   {
     id: "chongqing-university",
@@ -47,9 +137,9 @@ export const universities = [
     description:
       "Чунчины нэр хүндтэй, судалгааны хүчтэй цогц их сургуулиудын нэг.",
     overviewMn:
-      "重庆大学 (CQU) нь Монгол оюутанд инженер, архитектур, компьютерын шинжлэх ухаан, дизайн, бизнесийн чиглэлээр хамгийн хүчтэй сонголтуудын нэг. Эх мэдээлэлд CQU-ийн 2026 President Scholarship болон Mayor Scholarship-ийн өргөдлийн хугацаа, багтах зүйлс илүү тодорхой дурдагдсан тул тэтгэлгийн хуудсанд баталгаатай хэсгийг тусад нь харууллаа.",
+      "Chongqing University (CQU) нь 1929 онд байгуулагдсан, Хятадын Боловсролын яаманд шууд харьяалагддаг үндэсний хэмжээний тэргүүлэх, судалгааны чиглэлийн цогц их сургууль юм. Тус сургууль нь “211 Project”, “985 Project” болон “Double First-Class” хөтөлбөрт багтдаг бөгөөд Хятадын баруун бүсийн нэр хүндтэй их сургуулиудын нэг юм. ",
     overview:
-      "重庆大学 (CQU) нь Монгол оюутанд инженер, архитектур, компьютерын шинжлэх ухаан, дизайн, бизнесийн чиглэлээр хамгийн хүчтэй сонголтуудын нэг. Эх мэдээлэлд CQU-ийн 2026 President Scholarship болон Mayor Scholarship-ийн өргөдлийн хугацаа, багтах зүйлс илүү тодорхой дурдагдсан тул тэтгэлгийн хуудсанд баталгаатай хэсгийг тусад нь харууллаа.",
+      "Chongqing University (CQU) нь 1929 онд байгуулагдсан, Хятадын Боловсролын яаманд шууд харьяалагддаг үндэсний хэмжээний тэргүүлэх, судалгааны чиглэлийн цогц их сургууль юм. Тус сургууль нь “211 Project”, “985 Project” болон “Double First-Class” хөтөлбөрт багтдаг бөгөөд Хятадын баруун бүсийн нэр хүндтэй их сургуулиудын нэг юм. ",
     bcur2026: {
       rank: 34,
       score: 436.0,

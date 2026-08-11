@@ -21,7 +21,7 @@ export default function AttractionDetail() {
         <div className="container narrow">
           <BackButton>Газрын зураг руу буцах</BackButton>
           <h1>Байршил олдсонгүй</h1>
-          <p>Энэ аяллын газар одоогийн Explore Chongqing мэдээлэлд байхгүй байна.</p>
+          <p>Энэ аяллын газар одоогийн Чунчин мэдээлэлд байхгүй байна.</p>
         </div>
       </main>
     );
@@ -42,7 +42,7 @@ export default function AttractionDetail() {
             <MapPinned size={18} aria-hidden="true" />
             Газрын зураг дээр харах
           </Link>
-          <BackButton to="/attractions">Аяллын газрууд</BackButton>
+          <BackButton to="/attractions">Онцлох газрууд</BackButton>
         </div>
       </PageHero>
 

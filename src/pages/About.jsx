@@ -18,9 +18,9 @@ import {
 } from "../data/aboutChongqing.js";
 import { attractions } from "../data/attractions.js";
 
-function CardList({ title, items, icon: Icon }) {
+function CardList({ title, items, icon: Icon, className = "" }) {
   return (
-    <article className="content-panel icon-panel">
+    <article className={`content-panel icon-panel ${className}`.trim()}>
       <Icon size={24} aria-hidden="true" />
       <h2>{title}</h2>
       <ul className="clean-list">
@@ -49,57 +49,60 @@ export default function About() {
   return (
     <main>
       <PageHero
-        eyebrow="Чунчины тухай"
-        title="Уул, гол, гүүр, их сургууль, халуун амттай мегаполис."
-        subtitle="重庆 / Chongqing — Монгол оюутанд зориулсан хотын товч хөтөч."
+        title="Чунчин хотын тухай"
         image={attractions[5].image}
         imagePosition={attractions[5].imagePosition}
         label="Чунчины хотын үзэмж"
       >
-        <p>
-          Чунчин бол Бээжин, Шанхай, Тяньжинтай адил төв засгийн газарт шууд
-          харьяалагддаг 4 хотын нэг. Нийт нутаг дэвсгэр том учраас хүн амын
-          тоог зөвхөн хотын төвийн хэмжээнд ойлгож болохгүй.
-        </p>
       </PageHero>
 
       <section className="section">
         <div className="container detail-grid">
           <article className="content-panel">
-            <p className="eyebrow">Чунчин товчхон</p>
-            <h2>Үндсэн мэдээлэл</h2>
+
+            <h2>CHONGQING — THE 8D CYBER CITY</h2>
             <p>
-              Чунчин нь Хятадын баруун өмнөд хэсэгт, Янцзы мөрний дээд урсгалд
-              байрладаг. 1997 онд тусгай захиргааны статустай болсон бөгөөд
-              газар нутгийн хувьд шууд харьяа хотуудаас хамгийн том нь.
+              Чунчин (重庆) нь Хятадын баруун өмнөд хэсэгт орших, төв засгийн газарт шууд харьяалагддаг дөрвөн хотын нэг. (Шанхай, Бээжин, Тяньжин, Чунчин)
+
+              Уул, мана, өндөр барилга, гүүр болон олон түвшний зам тээвэр нь давхарлан нийлсэн өвөрмөц хот байгуулалтаараа дэлхийд танигдсан.
+
             </p>
+            <p>Хотын газарзүйн онцлогоос шалтгаалан зам, метро, барилга байгууламж нь өөр өөр өндөрлөг, түвшинд байрладаг. Үүний үр дүнд нэг барилгаас нөгөө барилга руу явахдаа хэд хэдэн давхар дээш доош хөдөлж, газрын зураг дээрх ойрхон хоёр цэг бодит байдал дээр огт өөр түвшинд байх тохиолдол бий.</p>
+            <p>Тиймээс Чунчинийг интернэт хэрэглэгчид:
+
+              “8D City” — 8 хэмжээст хот
+              “Cyber City” — ирээдүйн хот
+
+              хэмээн дүрслэх нь түгээмэл.</p>
           </article>
           <InfoGrid items={chongqingAtGlance} />
         </div>
       </section>
+     <section className="section">
+  <div
+    className="container two-column"
+    style={{ marginBottom: "10px" }}
+  >
+    <CardList
+      title="Уур амьсгал"
+      items={climateCards.advantages}
+      icon={CloudRain}
+      className="climate-card-list"
+    />
+  </div>
+</section>
 
       <section className="section split-section">
-        <div className="container two-column">
           <article className="content-panel">
-            <p className="eyebrow">山城 — Уулын хот</p>
-            <h2>Хотын дүр төрх</h2>
-            <ul className="clean-list">
-              {mountainCity.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-          <article className="content-panel">
-            <p className="eyebrow">Амьдрах зардал</p>
-            <h2>Харьцангуй боломжийн сонголтууд</h2>
+
+            <h2>Амьдрах зардал</h2>
             <p>
-              Чунчин нь том хотын боломжтой боловч Бээжин, Шанхай зэрэг хоттой
-              харьцуулахад оюутны амьдралд илүү боломжийн хувилбаруудтай.
-              Сарын зардлыг яг ¥X гэж зохиож бичээгүй: зардал нь дотуур байр, хооллох
-              хэв маяг, аялал, хэрэглээнээс их хамаарна.
+              Чунчин нь Бээжин, Шанхай зэрэг хотуудтай ижил том хот ч бусад хотуудтай харьцуулахад амьдрах зардал харьцангуй бага хот юм.
+
+              Хотын хэмжээ, боловсрол, технологи, худалдаа, нийтийн тээврийн хөгжлөөр томоохон мегаполисын түвшинд хүрсэн хэдий ч байр, хоол, өдөр тутмын хэрэглээний зардал нь оюутны төсөвт харьцангуй хэмнэлттэй зохицуулах боломжтой байдаг.
             </p>
           </article>
-        </div>
+        
       </section>
 
       <section className="section">
@@ -108,105 +111,18 @@ export default function About() {
             <article className="about-card" key={card.title}>
               <Building2 size={22} aria-hidden="true" />
               <h2>{card.title}</h2>
-              <p>{card.text}</p>
+              <p style={{ whiteSpace: "pre-line" }}>{card.text}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section className="section">
-        <div className="container three-column">
-          <article className="content-panel icon-panel">
-            <Train size={24} aria-hidden="true" />
-            <h2>Тээвэр</h2>
-            <MetricList items={transportStats} />
-            <p>
-              Чунчин нь Chengdu, Xi'an, Kunming, Guiyang зэрэг хотуудтай
-              холбогддог баруун өмнөдийн том тээврийн зангилаа.
-            </p>
-          </article>
-          <article className="content-panel icon-panel">
-            <CloudRain size={24} aria-hidden="true" />
-            <h2>Уур амьсгал</h2>
-            <MetricList items={climateStats} />
-          </article>
-          <article className="content-panel icon-panel">
-            <GraduationCap size={24} aria-hidden="true" />
-            <h2>Боловсролын орчин</h2>
-            <MetricList items={educationStats} />
-            <Link className="text-link" to="/universities">
-              11 сургуулийг үзэх
-              <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </article>
+        <div className="container two-column" style={{ marginBottom: "10px" }}>
+          <CardList title="Давуу тал" items={balancedNotes.advantages} icon={Landmark} className="climate-card-list" />
         </div>
       </section>
 
-      <section className="section">
-        <div className="container two-column">
-          <CardList title="Уур амьсгалын давуу тал" items={climateCards.advantages} icon={CloudRain} />
-          <CardList title="Уур амьсгалд анхаарах зүйл" items={climateCards.watchOuts} icon={CloudRain} />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container detail-grid">
-          <article className="content-panel">
-            <p className="eyebrow">Эдийн засаг ба боломж</p>
-            <h2>Суралцахаас цааш харах хот</h2>
-            <ul className="clean-list">
-              {economyFacts.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </article>
-          <article className="content-panel">
-            <p className="eyebrow">Салбарууд</p>
-            <div className="tag-list">
-              {economySectors.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container two-column">
-          <CardList title="Давуу тал" items={balancedNotes.advantages} icon={Landmark} />
-          <CardList title="Анхаарах зүйл" items={balancedNotes.watchOuts} icon={CloudRain} />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="section-heading">
-            <p className="eyebrow">Яагаад Чунчин гэж?</p>
-            <h2>Суралцах, амьдрах, аялах, өсөх боломжийг нэг дор өгдөг хот.</h2>
-          </div>
-          <div className="about-grid">
-            {whyChongqing.map((card) => (
-              <article className="about-card" key={card.title}>
-                <Utensils size={22} aria-hidden="true" />
-                <h2>{card.title}</h2>
-                <p>{card.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <article className="notice-panel association-panel">
-            <GraduationCap size={24} aria-hidden="true" />
-            <div>
-              <h2>{mongolianAssociation.title}</h2>
-              <p>{mongolianAssociation.text}</p>
-            </div>
-          </article>
-        </div>
-      </section>
     </main>
   );
 }

@@ -7,7 +7,7 @@ export default function Footer() {
         <div>
           <Link className="brand footer-brand" to="/">
             <img className="brand-logo" src="/images/icon/site-logo.webp" alt="" aria-hidden="true" />
-            <strong>Explore Chongqing</strong>
+            <strong>Чунчин</strong>
           </Link>
           <p>Аялах / Суралцах / Таних</p>
           <small>Чунчин хот ба суралцах боломжийг газрын зурагтай холбосон интерактив хөтөч.</small>
@@ -17,11 +17,11 @@ export default function Footer() {
           <Link to="/about">Чунчины тухай</Link>
           <Link to="/universities">Их сургуулиуд</Link>
           <Link to="/scholarships">Тэтгэлэг</Link>
-          <Link to="/mongolian-students">Монгол оюутнууд</Link>
+          <Link to="/mongolian-students">Оюутны холбоо</Link>
         </div>
         <div>
           <h2>Судлах</h2>
-          <Link to="/attractions">Аяллын газрууд</Link>
+          <Link to="/attractions">Онцлох газрууд</Link>
           <Link to="/food">Хоол</Link>
           <Link to="/map">Газрын зураг</Link>
           <a href="/image-credits.html">Зургийн эх сурвалж</a>

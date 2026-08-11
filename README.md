@@ -1,4 +1,4 @@
-# Explore Chongqing
+# Чунчин
 
 React + Vite дээр хийсэн интерактив Chongqing хот, аялал, их сургууль, хоол, тэтгэлгийн guide веб сайт.
 
@@ -33,7 +33,7 @@ npm run build
 ## Data шинэчлэх
 
 - Их сургуулиуд: `src/data/universities.js`
-- Аяллын газрууд: `src/data/attractions.js`
+- Онцлох газрууд: `src/data/attractions.js`
 - Хоолнууд: `src/data/food.js`
 - Тэтгэлэг: `src/data/scholarships.js`
 
