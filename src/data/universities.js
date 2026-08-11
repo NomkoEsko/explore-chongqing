@@ -875,13 +875,13 @@ export const universities = [
     district: "Хэчуань дүүрэг",
     type: "Олон улсын бизнесийн бакалаврын коллеж",
     founded: "Албан түүхийг шалгана",
-    latitude: 29.99675,
-    longitude: 106.24408,
+    latitude: 29.999406,
+    longitude: 106.240288,
     campusNameMn: "Хэчуань A кампус",
     campusAddress: "No.88 Xuefu Road, Hechuan District, Chongqing 401520",
     coordinateSource: "CCIBE албан хаяг; Amap POI cross-check",
     coordinateSourceUrl: "https://www.amap.com/place/B0H65ZNBHB",
-    image: "",
+    image: "/images/universities/uni1.jpg",
     shortDescriptionMn:
       "Олон улсын бизнес, эдийн засаг, санхүү, худалдаа, цахим худалдаа, гадаад хэлний чиглэлд тохиромжтой; 2026 оны тэтгэлгийн яг дүн баталгаажаагүй.",
     description:
@@ -936,5 +936,4 @@ export const universities = [
     ],
   },
 ];
-
 

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div>
           <Link className="brand footer-brand" to="/">
-            <span>CQ</span>
+            <img className="brand-logo" src="/images/icon/site-logo.webp" alt="" aria-hidden="true" />
             <strong>Explore Chongqing</strong>
           </Link>
           <p>Аялах / Суралцах / Таних</p>

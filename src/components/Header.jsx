@@ -25,7 +25,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container nav-shell">
         <Link className="brand" to="/" aria-label="Explore Chongqing нүүр хуудас">
-          <span>CQ</span>
+          <img className="brand-logo" src="/images/icon/site-logo.webp" alt="" aria-hidden="true" />
           <strong>Explore Chongqing</strong>
         </Link>
         <nav className={`main-nav ${open ? "open" : ""}`} aria-label="Үндсэн цэс">
