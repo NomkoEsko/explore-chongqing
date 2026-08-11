@@ -42,9 +42,24 @@ export default function MongolianStudents() {
                     <section className="student-month-card" key={month.id} aria-labelledby={`student-month-${month.id}`}>
                       <h4 id={`student-month-${month.id}`}>{month.month}</h4>
                       <ul>
-                        {month.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
+                        {month.items.map((item) => {
+                          if (typeof item === "string") {
+                            return <li key={item}>{item}</li>;
+                          }
+
+                          return (
+                            <li key={item.text}>
+                              {item.text}
+                              {item.details?.length ? (
+                                <ul className="student-activity-subitems">
+                                  {item.details.map((detail) => (
+                                    <li key={detail}>{detail}</li>
+                                  ))}
+                                </ul>
+                              ) : null}
+                            </li>
+                          );
+                        })}
                       </ul>
                     </section>
                   ))}

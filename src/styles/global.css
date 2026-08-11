@@ -1825,6 +1825,18 @@ details summary {
   line-height: 1.65;
 }
 
+.student-activity-subitems {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding-left: 1rem;
+}
+
+.student-activity-subitems li {
+  font-size: 0.95em;
+  line-height: 1.55;
+}
+
 .mobile-bottom-nav {
   display: none;
 }
