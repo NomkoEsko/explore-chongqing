@@ -16,7 +16,7 @@ import { universities } from "../data/universities.js";
 
 const categories = [
   {
-    title: "Чунчины тухай",
+    title: "Чунчиний тухай",
     text: "Хот, амьдрал, уур амьсгал",
     to: "/about",
     icon: Building2,
@@ -45,7 +45,7 @@ const categories = [
   },
   {
     title: "Хоол",
-    text: "Чунчины алдарт амтууд",
+    text: "Чунчиний алдарт амтууд",
     to: "/food",
     icon: Utensils,
     tone: "food",

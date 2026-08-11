@@ -72,15 +72,15 @@ function ScrollAndTitle() {
     } else if (segments[0] === "attractions" && segments[1]) {
       title = `${attractions.find((item) => item.id === segments[1])?.nameMn || "Аяллын газар"} | Чунчин`;
     } else if (segments[0] === "attractions") {
-      title = "Чунчины Онцлох газрууд | Чунчин";
+      title = "Чунчиний Онцлох газрууд | Чунчин";
     } else if (segments[0] === "food" && segments[1]) {
       title = `${foods.find((item) => item.id === segments[1])?.nameMn || "Хоол"} | Чунчин`;
     } else if (segments[0] === "food") {
-      title = "Чунчины хоол | Чунчин";
+      title = "Чунчиний хоол | Чунчин";
     } else if (segments[0] === "scholarships") {
       title = "Тэтгэлэг | Чунчин";
     } else if (segments[0] === "about") {
-      title = "Чунчины тухай | Чунчин";
+      title = "Чунчиний тухай | Чунчин";
     } else if (segments[0] === "mongolian-students") {
       title = "Оюутны холбоо | Чунчин";
     } else if (segments[0] === "map") {

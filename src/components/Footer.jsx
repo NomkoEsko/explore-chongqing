@@ -14,7 +14,7 @@ export default function Footer() {
         </div>
         <div>
           <h2>Цэс</h2>
-          <Link to="/about">Чунчины тухай</Link>
+          <Link to="/about">Чунчиний тухай</Link>
           <Link to="/universities">Их сургуулиуд</Link>
           <Link to="/scholarships">Тэтгэлэг</Link>
           <Link to="/mongolian-students">Оюутны холбоо</Link>

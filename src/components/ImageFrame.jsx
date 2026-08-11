@@ -11,7 +11,7 @@ export default function ImageFrame({ src, alt, label, className = "", position }
       ) : null}
       <div className="image-fallback" aria-hidden={src && !failed ? "true" : "false"}>
         <span>{label || alt}</span>
-        <small>Чунчины зураг</small>
+        <small>Чунчиний зураг</small>
       </div>
     </div>
   );

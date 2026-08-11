@@ -4,7 +4,7 @@ import { Facebook, Instagram, Menu, X } from "lucide-react";
 
 const links = [
   { label: "Нүүр", to: "/" },
-  { label: "Чунчины тухай", to: "/about" },
+  { label: "Чунчиний тухай", to: "/about" },
   { label: "Их сургуулиуд", to: "/universities" },
   { label: "Тэтгэлэг", to: "/scholarships" },
   { label: "Онцлох газрууд", to: "/attractions" },
