@@ -172,7 +172,7 @@ export default function MapView({ compact = false }) {
         <div>
           <p className="eyebrow">Газрын зураг</p>
           <h1>Чунчиныг газрын зургаар үзээрэй</h1>
-          <p>Их сургууль, аялал, хоол.</p>
+          <p>Их сургууль, аялал.</p>
         </div>
         <Link className="button ghost guide-link" to="/universities">
           <span className="guide-full">Суралцах хөтөч</span>
@@ -184,7 +184,7 @@ export default function MapView({ compact = false }) {
       <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
 
       <div className="map-tools">
-        <label className="map-search">
+        {/* <label className="map-search">
           <Search size={17} aria-hidden="true" />
           <input
             type="search"
@@ -193,7 +193,7 @@ export default function MapView({ compact = false }) {
             placeholder="Монгол, 中文, English нэрээр хайх"
             aria-label="Байршил хайх"
           />
-        </label>
+        </label> */}
         <button className="map-reset-button" type="button" onClick={handleReset}>
           <RotateCcw size={16} aria-hidden="true" />
           Төв рүү буцах
@@ -248,10 +248,10 @@ export default function MapView({ compact = false }) {
             />
           ))}
         </MapContainer>
-        <div className="map-note">
+        {/* <div className="map-note">
           <MapPinned size={17} aria-hidden="true" />
           {allLocations.length} бодит байршил: {universities.length} сургууль, {attractions.length} аяллын газар.
-        </div>
+        </div> */}
         <MobileMapSheet location={isTouchMode ? selectedLocation : null} onClose={() => setSelectedLocation(null)} />
       </div>
     </section>
