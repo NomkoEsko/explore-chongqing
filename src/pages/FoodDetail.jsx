@@ -44,9 +44,9 @@ export default function FoodDetail() {
         image={food.image}
         imagePosition={food.imagePosition}
       >
-        <p>{food.description}</p>
+        {/* <p>{food.description}</p> */}
         <div className="hero-actions">
-          <BackButton to="/food">Хоол</BackButton>
+          <BackButton to="/food" restoreScroll>Хоол</BackButton>
         </div>
       </PageHero>
       <section className="section">

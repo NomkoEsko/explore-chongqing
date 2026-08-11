@@ -4,7 +4,7 @@ import ImageFrame from "./ImageFrame.jsx";
 import { formatAcademicTag, formatBcurRank, formatScholarshipType } from "../utils/localization.js";
 import { getUniversityPrimaryName, getUniversitySecondaryName } from "../utils/placeNames.js";
 
-export default function UniversityCard({ university }) {
+export default function UniversityCard({ university, onClick }) {
   const scholarshipTypes = [...new Set(university.scholarships.map((scholarship) => scholarship.type))]
     .map(formatScholarshipType)
     .join(" / ");
@@ -13,7 +13,7 @@ export default function UniversityCard({ university }) {
   const secondaryName = getUniversitySecondaryName(university);
 
   return (
-    <Link className="university-card" to={`/universities/${university.id}`} aria-label={`Дэлгэрэнгүй: ${primaryName}`}>
+    <Link className="university-card" to={`/universities/${university.id}`} aria-label={`Дэлгэрэнгүй: ${primaryName}`} onClick={onClick}>
       <ImageFrame
         src={university.image}
         alt={university.nameEn}

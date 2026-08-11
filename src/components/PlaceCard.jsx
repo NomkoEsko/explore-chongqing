@@ -2,11 +2,11 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import ImageFrame from "./ImageFrame.jsx";
 
-export default function PlaceCard({ item, to, meta, cta = "Дэлгэрэнгүй" }) {
+export default function PlaceCard({ item, to, meta, cta = "Дэлгэрэнгүй", onClick }) {
   const summary = item.shortDescriptionMn || item.description;
 
   return (
-    <Link className="place-card" to={to} aria-label={`${cta}: ${item.nameEn}`}>
+    <Link className="place-card" to={to} aria-label={`${cta}: ${item.nameEn}`} onClick={onClick}>
       <ImageFrame src={item.image} alt={item.nameEn} label={item.nameEn} position={item.imagePosition} />
       <div className="place-card-body">
         <p className="district-line">

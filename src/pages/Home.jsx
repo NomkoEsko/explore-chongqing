@@ -113,25 +113,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="why-panel">
-            <div>
-              <p className="eyebrow">Чунчин яагаад онцгой вэ?</p>
-              <h2>Шөнийн гэрэл, халуун амт, гол мөрөн, оюутны амьдрал нэг хотод багтдаг.</h2>
-            </div>
-            <div className="why-list">
-              {why.map((item) => (
-                <span key={item}>
-                  <Flame size={16} aria-hidden="true" />
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-
           <div className="map-strip">
             <div>
               <p className="eyebrow">Газрын зураг</p>
-              <h2>Байршлаар нь харах хэрэгтэй үед интерактив зураг бэлэн.</h2>
+              <h2>Байршлаар нь харах</h2>
             </div>
             <Link className="button primary" to="/map">
               <MapPinned size={18} aria-hidden="true" />

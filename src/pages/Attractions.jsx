@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
 import PlaceCard from "../components/PlaceCard.jsx";
 import { attractionFilters, attractions } from "../data/attractions.js";
+import { saveListScrollPosition } from "../utils/scrollRestoration.js";
 
 export default function Attractions() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -36,6 +37,7 @@ export default function Attractions() {
               to={`/attractions/${attraction.id}`}
               meta={attraction.categoryLabel}
               cta="Дэлгэрэнгүй"
+              onClick={() => saveListScrollPosition("/attractions")}
             />
           ))}
         </div>

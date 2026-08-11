@@ -1,6 +1,7 @@
 import PageHero from "../components/PageHero.jsx";
 import PlaceCard from "../components/PlaceCard.jsx";
 import { foods } from "../data/food.js";
+import { saveListScrollPosition } from "../utils/scrollRestoration.js";
 
 function spicyLabel(level) {
   const labels = ["Зөөлөн", "Дунд", "Халуун"];
@@ -20,6 +21,7 @@ export default function Food() {
               to={`/food/${food.id}`}
               meta={spicyLabel(food.spicyLevel)}
               cta="Дэлгэрэнгүй"
+              onClick={() => saveListScrollPosition("/food")}
             />
           ))}
         </div>

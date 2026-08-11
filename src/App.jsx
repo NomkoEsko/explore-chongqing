@@ -17,21 +17,34 @@ import { attractions } from "./data/attractions.js";
 import { foods } from "./data/food.js";
 import { universities } from "./data/universities.js";
 import { getUniversityPrimaryName } from "./utils/placeNames.js";
+import { consumeListScrollRestore } from "./utils/scrollRestoration.js";
 
 const ROUTE_TRANSITION_MS = 220;
 
-function scrollToTopInstantly() {
+function scrollToInstantly(top = 0) {
   const root = document.documentElement;
   const previousScrollBehavior = root.style.scrollBehavior;
   root.style.scrollBehavior = "auto";
-  root.scrollTop = 0;
-  document.body.scrollTop = 0;
-  window.scrollTo(0, 0);
+  root.scrollTop = top;
+  document.body.scrollTop = top;
+  window.scrollTo(0, top);
   root.style.scrollBehavior = previousScrollBehavior;
+}
+
+function scrollToTopInstantly() {
+  scrollToInstantly(0);
 }
 
 function getRouteDepth(pathname) {
   return pathname.split("/").filter(Boolean).length;
+}
+
+function isListReturn(fromPathname, toPathname) {
+  return (
+    (toPathname === "/food" && fromPathname.startsWith("/food/")) ||
+    (toPathname === "/attractions" && fromPathname.startsWith("/attractions/")) ||
+    (toPathname === "/universities" && fromPathname.startsWith("/universities/"))
+  );
 }
 
 function getRouteDirection(from, to, navigationType) {
@@ -128,7 +141,15 @@ function AnimatedRoutes() {
     }
 
     const direction = getRouteDirection(activeLocation, location, navigationType);
-    scrollToTopInstantly();
+    const restoreScrollY = consumeListScrollRestore(location.pathname, {
+      allowSavedPosition: navigationType === "POP" && isListReturn(activeLocation.pathname, location.pathname),
+    });
+    const shouldRestoreScroll = restoreScrollY !== null;
+
+    if (!shouldRestoreScroll) {
+      scrollToTopInstantly();
+    }
+
     window.dispatchEvent(new CustomEvent("route-transition-start"));
     activeLocationRef.current = location;
     setRouteState({
@@ -137,10 +158,18 @@ function AnimatedRoutes() {
       direction,
     });
 
+    const applyDestinationScroll = () => {
+      if (shouldRestoreScroll) {
+        scrollToInstantly(restoreScrollY);
+      } else {
+        scrollToTopInstantly();
+      }
+    };
+
     const transitionTimer = window.setTimeout(() => {
       setRouteState((state) => {
         if (state.current.key !== location.key) return state;
-        scrollToTopInstantly();
+        applyDestinationScroll();
         window.dispatchEvent(new CustomEvent("route-transition-end"));
         return {
           ...state,
@@ -148,7 +177,7 @@ function AnimatedRoutes() {
         };
       });
     }, ROUTE_TRANSITION_MS);
-    window.requestAnimationFrame(scrollToTopInstantly);
+    window.requestAnimationFrame(applyDestinationScroll);
 
     return () => window.clearTimeout(transitionTimer);
   }, [location, navigationType]);

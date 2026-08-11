@@ -135,6 +135,7 @@ export default function UniversityDetail() {
             Албан ёсны сайт
             <ExternalLink size={17} aria-hidden="true" />
           </a>
+          <BackButton to="/universities" restoreScroll>Их сургуулиуд</BackButton>
         </div>
       </PageHero>
 

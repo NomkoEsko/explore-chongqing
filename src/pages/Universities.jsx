@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import PageHero from "../components/PageHero.jsx";
 import UniversityCard from "../components/UniversityCard.jsx";
 import { universities } from "../data/universities.js";
+import { saveListScrollPosition } from "../utils/scrollRestoration.js";
 
 const filters = [
   { id: "all", label: "Бүгд", match: () => true },
@@ -53,7 +54,11 @@ export default function Universities() {
           </div>
           <div className="card-grid university-grid">
             {visibleUniversities.map((university) => (
-              <UniversityCard key={university.id} university={university} />
+              <UniversityCard
+                key={university.id}
+                university={university}
+                onClick={() => saveListScrollPosition("/universities")}
+              />
             ))}
           </div>
         </div>

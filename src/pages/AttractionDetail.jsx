@@ -42,7 +42,7 @@ export default function AttractionDetail() {
             <MapPinned size={18} aria-hidden="true" />
             Газрын зураг дээр харах
           </Link>
-          <BackButton to="/attractions">Онцлох газрууд</BackButton>
+          <BackButton to="/attractions" restoreScroll>Онцлох газрууд</BackButton>
         </div>
       </PageHero>
 

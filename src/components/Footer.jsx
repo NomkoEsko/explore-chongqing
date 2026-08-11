@@ -9,7 +9,7 @@ export default function Footer() {
             <img className="brand-logo" src="/images/icon/site-logo.webp" alt="" aria-hidden="true" />
             <strong>Чунчин</strong>
           </Link>
-          <p>Аялах / Суралцах / Таних</p>
+          <p>Аялах / Суралцах</p>
           <small>Чунчин хот ба суралцах боломжийг газрын зурагтай холбосон интерактив хөтөч.</small>
         </div>
         <div>
@@ -24,8 +24,6 @@ export default function Footer() {
           <Link to="/attractions">Онцлох газрууд</Link>
           <Link to="/food">Хоол</Link>
           <Link to="/map">Газрын зураг</Link>
-          <a href="/image-credits.html">Зургийн эх сурвалж</a>
-          <small>Тэтгэлэг, элсэлт, аяллын мэдээллийг нийтлэхээс өмнө албан эх сурвалжаас баталгаажуулна.</small>
         </div>
       </div>
     </footer>
