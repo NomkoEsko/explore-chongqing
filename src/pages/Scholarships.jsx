@@ -86,10 +86,10 @@ export default function Scholarships() {
                   <strong>Дүн:</strong> {scholarship.amount}
                 </p>
                 <div className="comparison-actions">
-                  <Link className="text-link" to={`/universities/${scholarship.universityId}`}>
+                  {/* <Link className="text-link" to={`/universities/${scholarship.universityId}`}>
                     Сургуулийн мэдээлэл
                     <ArrowRight size={16} aria-hidden="true" />
-                  </Link>
+                  </Link> */}
                   <a className="text-link external-link" href={scholarship.officialUrl} target="_blank" rel="noopener noreferrer">
                     Албан ёсны сайт
                     <ExternalLink size={16} aria-hidden="true" />

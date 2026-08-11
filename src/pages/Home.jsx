@@ -69,10 +69,10 @@ export default function Home() {
           <div className="home-hero-copy">
             <p className="eyebrow">Explore Chongqing</p>
             <h1>Чунчиныг өөрийнхөөрөө судлаарай.</h1>
-            <p>
+            {/* <p>
               Суралцах, тэтгэлэг, аялал, хоол, Монгол оюутны орчныг нэг дороос
               сонгож үзэх гар утсанд ээлтэй хөтөч.
-            </p>
+            </p> */}
           </div>
 
           <div className="hub-grid" aria-label="Explore Chongqing үндсэн ангиллууд">
