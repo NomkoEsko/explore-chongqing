@@ -119,6 +119,47 @@ img {
   color: var(--text);
 }
 
+.header-socials {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.header-social-link {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #4e5869;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+.header-social-link:hover:not(.is-disabled) {
+  background: rgba(233, 95, 50, 0.1);
+  color: var(--red);
+}
+
+.header-social-link:focus-visible {
+  outline: 2px solid rgba(233, 95, 50, 0.34);
+  outline-offset: 2px;
+}
+
+.header-social-link.is-disabled,
+.header-social-link:disabled {
+  color: var(--muted);
+  cursor: default;
+  opacity: 0.42;
+}
+
 .icon-button {
   display: none;
   width: 44px;
@@ -1298,6 +1339,11 @@ p {
   padding: 24px;
 }
 
+.content-panel > :where(h2, h3) + :where(p, .clean-list, ul, ol),
+.content-panel > .eyebrow + .clean-list {
+  margin-top: 12px;
+}
+
 .university-info-column,
 .campus-info-block,
 .campus-info-groups,
@@ -1336,6 +1382,10 @@ p {
   color: var(--muted);
 }
 
+.campus-info-group h3 + .clean-list {
+  margin-top: 4px;
+}
+
 .campus-info-group .clean-list {
   gap: 6px;
 }
@@ -1351,7 +1401,7 @@ p {
 }
 
 .info-grid p {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   color: var(--muted);
   font-weight: 900;
 }
@@ -1647,7 +1697,8 @@ details summary {
 
 .student-future-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  align-self: start;
   gap: 14px;
 }
 
@@ -1865,6 +1916,15 @@ details summary {
     max-width: 150px;
     line-height: 1.05;
     font-size: 0.93rem;
+  }
+
+  .header-socials {
+    gap: 4px;
+  }
+
+  .header-social-link {
+    width: 36px;
+    height: 36px;
   }
 
   .icon-button {

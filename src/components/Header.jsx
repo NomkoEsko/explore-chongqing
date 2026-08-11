@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Facebook, Instagram, Menu, X } from "lucide-react";
 
 const links = [
   { label: "Нүүр", to: "/" },
@@ -12,6 +12,11 @@ const links = [
   { label: "Оюутны холбоо", to: "/mongolian-students" },
   { label: "Газрын зураг", to: "/map" },
 ];
+
+const socialLinks = {
+  instagram: "https://www.instagram.com/chongqing_chmoh/",
+  facebook: "https://www.facebook.com/share/1V6f9dqf1u/?mibextid=wwXIfr",
+};
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -35,6 +40,32 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
+        <div className="header-socials" aria-label="Нийгмийн холбоосууд">
+          <a
+            className="header-social-link"
+            href={socialLinks.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <Instagram size={18} aria-hidden="true" />
+          </a>
+          {socialLinks.facebook ? (
+            <a
+              className="header-social-link"
+              href={socialLinks.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <Facebook size={18} aria-hidden="true" />
+            </a>
+          ) : (
+            <button className="header-social-link is-disabled" type="button" aria-label="Facebook" disabled>
+              <Facebook size={18} aria-hidden="true" />
+            </button>
+          )}
+        </div>
         <button
           className="icon-button menu-button"
           type="button"

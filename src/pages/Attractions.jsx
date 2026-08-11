@@ -12,20 +12,7 @@ export default function Attractions() {
 
   return (
     <main>
-      <PageHero
-        eyebrow="Аяллын хөтөч"
-        title={`Чунчины ${attractions.length} аяллын газар`}
-        subtitle="Алдартай газрууд, Citywalk, creative street, зураг авах цэг, байгаль, шөнийн хот."
-        image={attractions[0].image}
-        imagePosition={attractions[0].imagePosition}
-        label="Чунчины шөнийн үзэмж"
-      >
-        <p>
-          Карт бүрээс очих шалтгаан, цагийн зөвлөмж, тээврийн чиглэл,
-          ойролцоох газрууд болон газрын зургийн байршлыг харна. Эхэд байхгүй
-          аяллын яг хугацаа, тасалбарын үнийг зохиож нэмээгүй.
-        </p>
-      </PageHero>
+      
       <section className="section">
         <div className="container">
           <div className="university-filter attraction-filter" aria-label="Аяллын газрын шүүлтүүр">

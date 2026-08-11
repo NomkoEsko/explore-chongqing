@@ -50,60 +50,17 @@ export default function AttractionDetail() {
         <div className="container detail-grid">
           <article className="content-panel">
             <p className="eyebrow">Танилцуулга</p>
-            <h2>Яагаад очих вэ?</h2>
             <p>{overview}</p>
           </article>
           <InfoGrid
             items={[
               { label: "Тохиромжтой цаг", value: bestTime },
-              { label: "Үргэлжлэх хугацаа", value: attraction.duration },
-              { label: "Ойролцоох газрууд", value: attraction.nearby.join(", ") },
             ]}
           />
         </div>
       </section>
 
-      <section className="section split-section">
-        <div className="container three-column">
-          <article className="content-panel icon-panel">
-            <Clock size={24} aria-hidden="true" />
-            <h2>Үзэх шалтгаан</h2>
-            <div className="tag-list">
-              {whyVisit.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </article>
-          <article className="content-panel icon-panel">
-            <Navigation size={24} aria-hidden="true" />
-            <h2>Хэрхэн очих вэ?</h2>
-            <p>{transport}</p>
-          </article>
-          <article className="content-panel icon-panel">
-            <Camera size={24} aria-hidden="true" />
-            <h2>Зураг авах санаа</h2>
-            <p>{tips}</p>
-          </article>
-        </div>
-      </section>
-
-      {attraction.sourceReferences?.length ? (
-        <section className="section">
-          <div className="container">
-            <article className="content-panel">
-              <p className="eyebrow">Эх сурвалж</p>
-              <h2>Баталгаанд ашигласан мэдээлэл</h2>
-              <div className="tag-list source-list">
-                {attraction.sourceReferences.map((source) => (
-                  <a key={source.url} href={source.url} target="_blank" rel="noreferrer">
-                    {source.label}
-                  </a>
-                ))}
-              </div>
-            </article>
-          </div>
-        </section>
-      ) : null}
+      
 
       <section className="section detail-map">
         <div className="container">
