@@ -20,9 +20,49 @@ function DetailMapController({ center, zoom }) {
   const map = useMap();
 
   useEffect(() => {
-    map.setView(center, zoom, { animate: false });
-    window.requestAnimationFrame(() => map.invalidateSize());
+    try {
+      map.setView(center, zoom, { animate: false });
+    } catch {
+      return undefined;
+    }
+
+    const resizeFrame = window.requestAnimationFrame(() => {
+      try {
+        map.invalidateSize({ pan: false });
+      } catch {
+        // Leaflet can be mid-unmount during route transitions.
+      }
+    });
+
+    return () => window.cancelAnimationFrame(resizeFrame);
   }, [center, map, zoom]);
+
+  useEffect(() => {
+    const resize = () => {
+      window.requestAnimationFrame(() => {
+        try {
+          map.invalidateSize({ pan: false });
+        } catch {
+          // Leaflet can be mid-unmount during route transitions.
+        }
+      });
+    };
+    const stop = () => {
+      try {
+        map.stop();
+      } catch {
+        // Leaflet can be mid-unmount during route transitions.
+      }
+    };
+
+    window.addEventListener("route-transition-start", stop);
+    window.addEventListener("route-transition-end", resize);
+    return () => {
+      stop();
+      window.removeEventListener("route-transition-start", stop);
+      window.removeEventListener("route-transition-end", resize);
+    };
+  }, [map]);
 
   return null;
 }

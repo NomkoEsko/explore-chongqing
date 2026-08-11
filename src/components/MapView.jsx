@@ -69,6 +69,39 @@ function MapDismissLayer({ onDismiss }) {
   return null;
 }
 
+function MapTransitionResize() {
+  const map = useMap();
+
+  useEffect(() => {
+    const resize = () => {
+      window.requestAnimationFrame(() => {
+        try {
+          map.invalidateSize({ pan: false });
+        } catch {
+          // Leaflet can be mid-unmount during route transitions.
+        }
+      });
+    };
+    const stop = () => {
+      try {
+        map.stop();
+      } catch {
+        // Leaflet can be mid-unmount during route transitions.
+      }
+    };
+
+    window.addEventListener("route-transition-start", stop);
+    window.addEventListener("route-transition-end", resize);
+    return () => {
+      stop();
+      window.removeEventListener("route-transition-start", stop);
+      window.removeEventListener("route-transition-end", resize);
+    };
+  }, [map]);
+
+  return null;
+}
+
 export default function MapView({ compact = false }) {
   const [activeCategory, setActiveCategory] = useState("all");
   const [ready, setReady] = useState(false);
@@ -202,6 +235,7 @@ export default function MapView({ compact = false }) {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <MapDismissLayer onDismiss={() => setSelectedLocation(null)} />
+          <MapTransitionResize />
           <MapFocus focusId={activeFocusId} onFocusedLocation={handleFocus} />
           <MapResetControl resetSignal={resetSignal} />
           {visibleLocations.map((location) => (

@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Route, Routes, useLocation, useNavigationType } from "react-router-dom";
 import MainLayout from "./components/MainLayout.jsx";
 import About from "./pages/About.jsx";
 import AttractionDetail from "./pages/AttractionDetail.jsx";
@@ -16,6 +16,34 @@ import UniversityDetail from "./pages/UniversityDetail.jsx";
 import { attractions } from "./data/attractions.js";
 import { foods } from "./data/food.js";
 import { universities } from "./data/universities.js";
+
+const ROUTE_TRANSITION_MS = 220;
+
+function scrollToTopInstantly() {
+  const root = document.documentElement;
+  const previousScrollBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = "auto";
+  root.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
+  root.style.scrollBehavior = previousScrollBehavior;
+}
+
+function getRouteDepth(pathname) {
+  return pathname.split("/").filter(Boolean).length;
+}
+
+function getRouteDirection(from, to, navigationType) {
+  if (navigationType === "POP") return "back";
+  const fromRoot = from.pathname.split("/").filter(Boolean)[0] || "";
+  const toRoot = to.pathname.split("/").filter(Boolean)[0] || "";
+
+  if (fromRoot === toRoot && getRouteDepth(to.pathname) < getRouteDepth(from.pathname)) {
+    return "back";
+  }
+
+  return "forward";
+}
 
 function ScrollAndTitle() {
   const location = useLocation();
@@ -45,30 +73,109 @@ function ScrollAndTitle() {
       title = "Газрын зураг | Explore Chongqing";
     }
     document.title = title;
-    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname, location.search]);
 
   return null;
+}
+
+function PageRoutes({ location }) {
+  return (
+    <Routes location={location}>
+      <Route path="/" element={<Home />} />
+      <Route path="/map" element={<MapPage />} />
+      <Route path="/universities" element={<Universities />} />
+      <Route path="/universities/:id" element={<UniversityDetail />} />
+      <Route path="/attractions" element={<Attractions />} />
+      <Route path="/attractions/:id" element={<AttractionDetail />} />
+      <Route path="/food" element={<Food />} />
+      <Route path="/food/:id" element={<FoodDetail />} />
+      <Route path="/scholarships" element={<Scholarships />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/mongolian-students" element={<MongolianStudents />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  const navigationType = useNavigationType();
+  const activeLocationRef = useRef(location);
+  const [routeState, setRouteState] = useState({
+    current: location,
+    previous: null,
+    direction: "forward",
+  });
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  useLayoutEffect(() => {
+    const activeLocation = activeLocationRef.current;
+
+    if (location.pathname === activeLocation.pathname) {
+      activeLocationRef.current = location;
+      setRouteState((state) => ({
+        ...state,
+        current: location,
+        previous: null,
+      }));
+      return undefined;
+    }
+
+    const direction = getRouteDirection(activeLocation, location, navigationType);
+    scrollToTopInstantly();
+    window.dispatchEvent(new CustomEvent("route-transition-start"));
+    activeLocationRef.current = location;
+    setRouteState({
+      current: location,
+      previous: activeLocation,
+      direction,
+    });
+
+    const transitionTimer = window.setTimeout(() => {
+      setRouteState((state) => {
+        if (state.current.key !== location.key) return state;
+        scrollToTopInstantly();
+        window.dispatchEvent(new CustomEvent("route-transition-end"));
+        return {
+          ...state,
+          previous: null,
+        };
+      });
+    }, ROUTE_TRANSITION_MS);
+    window.requestAnimationFrame(scrollToTopInstantly);
+
+    return () => window.clearTimeout(transitionTimer);
+  }, [location, navigationType]);
+
+  const isAnimating = Boolean(routeState.previous);
+
+  return (
+    <div
+      className={`route-transition-shell ${isAnimating ? "is-animating" : ""}`}
+      data-direction={routeState.direction}
+    >
+      {routeState.previous ? (
+        <div className="route-page route-page-exit" key={`exit-${routeState.previous.key}`}>
+          <PageRoutes location={routeState.previous} />
+        </div>
+      ) : null}
+      <div className="route-page route-page-enter" key={routeState.current.key}>
+        <PageRoutes location={routeState.current} />
+      </div>
+    </div>
+  );
 }
 
 export default function App() {
   return (
     <MainLayout>
       <ScrollAndTitle />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/map" element={<MapPage />} />
-        <Route path="/universities" element={<Universities />} />
-        <Route path="/universities/:id" element={<UniversityDetail />} />
-        <Route path="/attractions" element={<Attractions />} />
-        <Route path="/attractions/:id" element={<AttractionDetail />} />
-        <Route path="/food" element={<Food />} />
-        <Route path="/food/:id" element={<FoodDetail />} />
-        <Route path="/scholarships" element={<Scholarships />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/mongolian-students" element={<MongolianStudents />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AnimatedRoutes />
     </MainLayout>
   );
 }
